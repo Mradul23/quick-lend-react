@@ -153,7 +153,7 @@ export default function Login() {
 				<p className="font-light text-3xl mb-10 text-fuchsia-200">
 					Quickly borrow/lend general utilities within a localized community!
 				</p>
-				<div className="wrapper flex flex-row justify-center items-center w-full">
+				<div className="wrapper flex flex-row justify-center items-start w-full">
 					<div className="flex flex-col justify-center items-center w-1/4 border-r-4 mr-6">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3">LOGIN</h1>
 						<form
