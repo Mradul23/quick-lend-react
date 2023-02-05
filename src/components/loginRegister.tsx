@@ -180,7 +180,7 @@ export default function LoginRegisterComponent() {
 							</button>
 						</form>
 						<LoginErrorComponent
-							errorState={errorState}
+							loginErrors={{ loginPassword: errorState.loginPassword }}
 							userIsLogginIn={!registerFocus}
 						/>
 					</div>
@@ -272,7 +272,11 @@ export default function LoginRegisterComponent() {
 							</button>
 						</form>
 						<RegisterErrorComponent
-							errorState={errorState}
+							registerErrors={{
+								registerUsername: errorState.registerUsername,
+								registerPassword: errorState.registerPassword,
+								passwordMatch: errorState.passwordMatch,
+							}}
 							userIsRegistering={registerFocus}
 						/>
 					</div>

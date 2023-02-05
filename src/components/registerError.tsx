@@ -1,19 +1,16 @@
-import { PropsWithChildren } from "react";
 import { RegistrationErrors } from "../models/loginRegisterErrorModels";
 import "../index.css";
 
-export default function RegisterErrorComponent({
-	errorState,
-	userIsRegistering,
-}: PropsWithChildren<{
-	errorState: RegistrationErrors;
+export default function RegisterErrorComponent(props: {
+	registerErrors: RegistrationErrors;
 	userIsRegistering: boolean;
-}>): JSX.Element {
+}): JSX.Element {
+	const { registerErrors, userIsRegistering } = props;
 	return (
 		<>
 			<div
 				className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.registerUsername && userIsRegistering ? "visible" : ""}`}
+								${registerErrors.registerUsername && userIsRegistering ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
 					Invalid username.
@@ -24,7 +21,7 @@ export default function RegisterErrorComponent({
 			</div>
 			<div
 				className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.registerPassword && userIsRegistering ? "visible" : ""}`}
+								${registerErrors.registerPassword && userIsRegistering ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
 					Invalid password.
@@ -35,7 +32,7 @@ export default function RegisterErrorComponent({
 			</div>
 			<div
 				className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.passwordMatch && userIsRegistering ? "visible" : ""}`}
+								${registerErrors.passwordMatch && userIsRegistering ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">Passwords do not match.</p>
 			</div>
