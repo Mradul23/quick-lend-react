@@ -32,7 +32,7 @@ const initialErrorState = {
 	passwordMatch: false,
 };
 
-const errorReducer = (state: ErrorState, action: ErrorAction) => {
+const errorReducer = (state: ErrorState, action: ErrorAction): ErrorState => {
 	switch (action.type) {
 		case "resetAllErrors":
 			state.loginPassword = false;
