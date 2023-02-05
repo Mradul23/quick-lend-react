@@ -20,7 +20,7 @@ input[type="time"],
 input[type="week"],
 textarea,
 select {
-	@apply border shadow-md mb-4;
+	@apply border shadow-xl mb-4;
 }
 
 *:focus {
@@ -38,7 +38,7 @@ form label {
 
 .login-form input,
 .register-form input {
-	@apply border-fuchsia-200 shadow-md mb-4 bg-transparent text-xl text-white p-1;
+	@apply border-fuchsia-200 shadow-xl mb-4 bg-transparent text-xl text-white p-1;
 	border: 1px solid white;
 }
 
