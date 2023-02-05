@@ -173,7 +173,7 @@ export default function Login() {
 					Quickly borrow/lend general utilities within a localized community!
 				</p>
 				<div className="wrapper flex flex-row justify-center items-start w-full">
-					<div className="flex flex-col justify-center items-center w-1/4 border-r-4 mr-6">
+					<div className="flex flex-col justify-center items-center w-1/4">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3">LOGIN</h1>
 						<form
 							className="flex flex-col justify-center items-center login-form"
@@ -216,7 +216,7 @@ export default function Login() {
 							</p>
 						</div>
 					</div>
-					<div className="flex flex-col justify-center items-center w-3/5	">
+					<div className="flex flex-col justify-center items-center w-3/5	border-l-4 ml-6 pl-6">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3">
 							REGISTER
 						</h1>
