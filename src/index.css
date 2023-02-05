@@ -51,7 +51,7 @@ form label {
 }
 
 .error-div {
-	@apply transition-opacity transition-transform duration-700 ease-out opacity-0 translate-y-8 absolute pointer-events-none;
+	@apply transition-transform duration-700 ease-out opacity-0 translate-y-8 absolute pointer-events-none;
 }
 
 .error-div.visible {
