@@ -1,29 +1,15 @@
 import { useEffect, useState, useReducer } from "react";
 import { login, register } from "../services/auth";
+import {
+	GroupedErrorState,
+	ErrorAction,
+} from "../models/loginRegisterErrorModels";
+import RegisterErrorComponent from "./registerError";
+import LoginErrorComponent from "./loginError";
 import "../index.css";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
-interface ErrorState {
-	loginPassword: boolean;
-	registerUsername: boolean;
-	registerPassword: boolean;
-	passwordMatch: boolean;
-}
-
-interface ErrorAction {
-	type:
-		| "resetAllErrors"
-		| "setLoginPasswordError"
-		| "setRegisterUsernameError"
-		| "setRegisterPasswordError"
-		| "setPasswordMatchError";
-	loginPassword?: boolean;
-	registerUsername?: boolean;
-	registerPassword?: boolean;
-	passwordMatch?: boolean;
-}
 
 const initialErrorState = {
 	loginPassword: false,
@@ -32,7 +18,10 @@ const initialErrorState = {
 	passwordMatch: false,
 };
 
-const errorReducer = (state: ErrorState, action: ErrorAction): ErrorState => {
+const errorReducer = (
+	state: GroupedErrorState,
+	action: ErrorAction
+): GroupedErrorState => {
 	switch (action.type) {
 		case "resetAllErrors":
 			state.loginPassword = false;
@@ -57,7 +46,7 @@ const errorReducer = (state: ErrorState, action: ErrorAction): ErrorState => {
 	}
 };
 
-export default function Login() {
+export default function LoginRegisterComponent() {
 	const [errorState, dispatchError] = useReducer(
 		errorReducer,
 		initialErrorState
@@ -81,39 +70,27 @@ export default function Login() {
 			type: "resetAllErrors",
 		});
 		let validLoginPassword = PWD_REGEX.test(loginPassword);
-		if (!validLoginPassword && loginPassword.length > 0 && !registerFocus) {
+		if (!validLoginPassword && loginPassword.length > 0) {
 			dispatchError({
 				type: "setLoginPasswordError",
-				loginPassword: true,
 			});
 		}
 		let validRegisterUsername = USER_REGEX.test(registerUsername);
-		if (
-			!validRegisterUsername &&
-			registerUsername.length > 0 &&
-			registerFocus
-		) {
+		if (!validRegisterUsername && registerUsername.length > 0) {
 			dispatchError({
 				type: "setRegisterUsernameError",
-				registerUsername: true,
 			});
 		}
 		let validRegisterPassword = PWD_REGEX.test(registerPassword);
-		if (
-			!validRegisterPassword &&
-			registerPassword.length > 0 &&
-			registerFocus
-		) {
+		if (!validRegisterPassword && registerPassword.length > 0) {
 			dispatchError({
 				type: "setRegisterPasswordError",
-				registerPassword: true,
 			});
 		}
 		let validPasswordMatch = registerPassword === registerConfirmPassword;
-		if (!validPasswordMatch && validRegisterPassword && registerFocus) {
+		if (!validPasswordMatch && validRegisterPassword) {
 			dispatchError({
 				type: "setPasswordMatchError",
-				passwordMatch: true,
 			});
 		}
 	}, [
@@ -121,7 +98,6 @@ export default function Login() {
 		registerUsername,
 		registerPassword,
 		registerConfirmPassword,
-		registerFocus,
 	]);
 
 	useEffect(() => {
@@ -203,18 +179,10 @@ export default function Login() {
 								Login
 							</button>
 						</form>
-						<div
-							className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.loginPassword ? "visible" : ""}`}
-						>
-							<p className="text-white text-center">
-								Invalid password.
-								<br />
-								Must be 8-24 characters long, contain at least one uppercase
-								letter, one lowercase letter, one number, and one special
-								character.
-							</p>
-						</div>
+						<LoginErrorComponent
+							errorState={errorState}
+							userIsLogginIn={!registerFocus}
+						/>
 					</div>
 					<div className="flex flex-col justify-center items-center w-3/5	border-l-4 ml-6 pl-6">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3">
@@ -303,35 +271,10 @@ export default function Login() {
 								Register
 							</button>
 						</form>
-						<div
-							className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.registerUsername ? "visible" : ""}`}
-						>
-							<p className="text-white text-center">
-								Invalid username.
-								<br />
-								Must be 4-24 characters long, contain only letters, numbers, and
-								underscores, and start with a letter.
-							</p>
-						</div>
-						<div
-							className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.registerPassword ? "visible" : ""}`}
-						>
-							<p className="text-white text-center">
-								Invalid password.
-								<br />
-								Must be 8-24 characters long, contain at least one uppercase
-								letter, one lowercase letter, one number, and one special
-								character.
-							</p>
-						</div>
-						<div
-							className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-								${errorState.passwordMatch ? "visible" : ""}`}
-						>
-							<p className="text-white text-center">Passwords do not match.</p>
-						</div>
+						<RegisterErrorComponent
+							errorState={errorState}
+							userIsRegistering={registerFocus}
+						/>
 					</div>
 				</div>
 			</main>
