@@ -5,6 +5,26 @@ import "./index.css";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
+interface ErrorState {
+	loginPassword: boolean;
+	registerUsername: boolean;
+	registerPassword: boolean;
+	passwordMatch: boolean;
+}
+
+interface ErrorAction {
+	type:
+		| "resetAllErrors"
+		| "setLoginPasswordError"
+		| "setRegisterUsernameError"
+		| "setRegisterPasswordError"
+		| "setPasswordMatchError";
+	loginPassword?: boolean;
+	registerUsername?: boolean;
+	registerPassword?: boolean;
+	passwordMatch?: boolean;
+}
+
 const initialErrorState = {
 	loginPassword: false,
 	registerUsername: false,
@@ -12,7 +32,7 @@ const initialErrorState = {
 	passwordMatch: false,
 };
 
-const errorReducer = (state, action) => {
+const errorReducer = (state: ErrorState, action: ErrorAction) => {
 	switch (action.type) {
 		case "resetAllErrors":
 			state.loginPassword = false;
@@ -106,12 +126,11 @@ export default function Login() {
 
 	useEffect(() => {
 		dispatchError({
-			type: "allErrors",
-			reset: true,
+			type: "resetAllErrors",
 		});
 	}, []);
 
-	const handleLogin = (e) => {
+	const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setRegisterFocus(false);
 		if (errorState.loginPassword) {
@@ -122,7 +141,7 @@ export default function Login() {
 		});
 	};
 
-	const handleRegister = (e) => {
+	const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setRegisterFocus(true);
 		if (
