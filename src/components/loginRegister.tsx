@@ -7,6 +7,8 @@ import {
 import RegisterErrorComponent from "./registerError";
 import LoginErrorComponent from "./loginError";
 import "../index.css";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../contexts/authProvider";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -47,11 +49,14 @@ const errorReducer = (
 };
 
 export default function LoginRegisterComponent() {
+	const { setUser } = useAuth();
+
 	const [errorState, dispatchError] = useReducer(
 		errorReducer,
 		initialErrorState
 	);
 
+	const [requestInProgress, setRequestInProgress] = useState(false);
 	const [registerFocus, setRegisterFocus] = useState(false);
 
 	const [loginEmail, setLoginEmail] = useState("");
@@ -106,14 +111,22 @@ export default function LoginRegisterComponent() {
 		});
 	}, []);
 
+	const navigateTo = useNavigate();
 	const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+		setRequestInProgress(true);
 		e.preventDefault();
 		setRegisterFocus(false);
 		if (errorState.loginPassword) {
 			return;
 		}
 		login({ loginEmail, loginPassword }).then((data) => {
-			console.log(data);
+			setRequestInProgress(false);
+			if (data.status === 200) {
+				setUser(data.data.user);
+				navigateTo("/dashboard");
+			} else {
+				window.alert(data.response.data);
+			}
 		});
 	};
 
@@ -135,7 +148,12 @@ export default function LoginRegisterComponent() {
 			registerLastName,
 			registerPhoneNumber,
 		}).then((data) => {
-			console.log(data);
+			if (data.status === 201) {
+				setUser(data.data.user);
+				navigateTo("/dashboard");
+			} else {
+				window.alert(data.response.data);
+			}
 		});
 	};
 
@@ -175,7 +193,11 @@ export default function LoginRegisterComponent() {
 								onFocus={() => setRegisterFocus(false)}
 								required
 							/>
-							<button type="submit" className="login-button">
+							<button
+								type="submit"
+								className="login-button"
+								disabled={requestInProgress}
+							>
 								Login
 							</button>
 						</form>
@@ -267,7 +289,11 @@ export default function LoginRegisterComponent() {
 								required
 							/>
 							<br />
-							<button type="submit" className="register-button">
+							<button
+								type="submit"
+								className="register-button"
+								disabled={requestInProgress}
+							>
 								Register
 							</button>
 						</form>

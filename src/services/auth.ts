@@ -11,10 +11,13 @@ export async function login(credentials: loginCredentials) {
 			"Content-Type": "application/json",
 		},
 		data: JSON.stringify(credentials),
-	}).then((data) => {
-		console.log(data.data);
-		return data;
-	});
+	})
+		.then((data) => {
+			return data;
+		})
+		.catch((err) => {
+			return err;
+		});
 }
 
 export async function register(credentials: registerCredentials) {
@@ -24,8 +27,11 @@ export async function register(credentials: registerCredentials) {
 			"Content-Type": "application/json",
 		},
 		data: JSON.stringify(credentials),
-	}).then((data) => {
-		console.log(data.data);
-		return data;
-	});
+	})
+		.then((data) => {
+			return data;
+		})
+		.catch((err) => {
+			return err;
+		});
 }

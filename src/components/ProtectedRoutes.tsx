@@ -1,9 +1,8 @@
 import { Outlet, Navigate } from "react-router-dom";
-import { PropsWithChildren } from "react";
+import useAuth from "../contexts/authProvider";
 
-export default function ProtectedRoutes({
-	token,
-}: PropsWithChildren<{ token: boolean }>) {
-	console.log(token);
+export default function ProtectedRoutes() {
+	const { user } = useAuth();
+	const token = user.accessToken;
 	return token ? <Outlet /> : <Navigate to="/login" />;
 }
