@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../customHooks/authHook";
-import { login } from "../services/auth";
+import useAuth from "../customHooks/authContextHook";
+import login from "../customHooks/loginHook";
 import LoginErrorComponent from "./loginError";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -24,21 +24,20 @@ export default function LoginComponent() {
 
 	const navigateTo = useNavigate();
 
-	const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		setRequestInProgress(true);
 		e.preventDefault();
 		if (loginPasswordError) {
 			return;
 		}
-		login({ loginEmail, loginPassword }).then((data) => {
-			setRequestInProgress(false);
-			if (data.status === 200) {
-				setUser(data.data.user);
-				navigateTo("/dashboard");
-			} else {
-				window.alert(data.response.data);
-			}
-		});
+		const data = await login({ loginEmail, loginPassword });
+		setRequestInProgress(false);
+		if (data.status === 200) {
+			setUser(data.data.user);
+			navigateTo("/dashboard");
+		} else {
+			window.alert(data.response.data);
+		}
 	};
 
 	return (
@@ -79,7 +78,10 @@ export default function LoginComponent() {
 							<Link to="/register" className="text-fuchsia-200 mt-4">
 								Don't have an account yet? Register
 							</Link>
-							<Link to="/" className="text-fuchsia-200 mt-4 back-to-landing-page-button">
+							<Link
+								to="/"
+								className="text-fuchsia-200 mt-4 back-to-landing-page-button"
+							>
 								Back to the Landing Page
 							</Link>
 						</form>

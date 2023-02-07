@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from "react";
-import { register } from "../services/auth";
+import register from "../customHooks/registrationHook";
 import {
 	RegistrationErrors,
 	ErrorAction,
@@ -7,7 +7,7 @@ import {
 import RegisterErrorComponent from "./registerError";
 import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../customHooks/authHook";
+import useAuth from "../customHooks/authContextHook";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -109,7 +109,7 @@ export default function RegisterComponent() {
 
 	const navigateTo = useNavigate();
 
-	const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (
 			errorState.registerUsername ||
@@ -119,22 +119,22 @@ export default function RegisterComponent() {
 			return;
 		}
 		setRequestInProgress(true);
-		register({
+		const data = await register({
 			registerEmail,
 			registerUsername,
 			registerPassword,
 			registerFirstName,
 			registerLastName,
 			registerPhoneNumber,
-		}).then((data) => {
-			setRequestInProgress(false);
-			if (data.status === 201) {
-				setUser(data.data.user);
-				navigateTo("/dashboard");
-			} else {
-				window.alert(data.response.data);
-			}
 		});
+
+		setRequestInProgress(false);
+		if (data.status === 201) {
+			setUser(data.data.user);
+			navigateTo("/dashboard");
+		} else {
+			window.alert(data.response.data);
+		}
 	};
 
 	return (
