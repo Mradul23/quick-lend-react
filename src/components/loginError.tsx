@@ -1,16 +1,13 @@
-import { LoginErrors } from "../models/loginRegisterErrorModels";
 import "../index.css";
+import { LoginErrors } from "../models/loginRegisterErrorModels";
 
-export default function LoginErrorComponent(props: {
-	loginErrors: LoginErrors;
-	userIsLogginIn: boolean;
-}): JSX.Element {
-	const { loginErrors, userIsLogginIn } = props;
+export default function LoginErrorComponent(props: LoginErrors): JSX.Element {
+	const { loginPasswordError } = props;
 	return (
 		<>
 			<div
-				className={`flex justify-center items-center border-white mr-3 mt-5 p-3 border-t error-div 
-      ${loginErrors.loginPassword && userIsLogginIn ? "visible" : ""}`}
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+      ${loginPasswordError ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
 					Invalid password.
