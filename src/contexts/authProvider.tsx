@@ -3,7 +3,6 @@ import {
 	Dispatch,
 	ReactNode,
 	SetStateAction,
-	useContext,
 	useState,
 } from "react";
 import { UserInfo } from "../models/userInfoModel";
@@ -13,7 +12,7 @@ interface AuthContextType {
 	setUser: Dispatch<SetStateAction<UserInfo>>;
 }
 
-const AuthContext = createContext<AuthContextType>({
+export const AuthContext = createContext<AuthContextType>({
 	user: {
 		accessToken: "",
 		username: "",
@@ -42,7 +41,3 @@ export const AuthProvider = (props: { children: ReactNode }) => {
 		</AuthContext.Provider>
 	);
 };
-
-export default function useAuth() {
-	return useContext(AuthContext);
-}

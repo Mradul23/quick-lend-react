@@ -35,3 +35,19 @@ export async function register(credentials: registerCredentials) {
 			return err;
 		});
 }
+
+export async function logout() {
+	return axiosService("/api/user/logout", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		withCredentials: true,
+	})
+		.then((data) => {
+			return data;
+		})
+		.catch((err) => {
+			return err;
+		});
+}

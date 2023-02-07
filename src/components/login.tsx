@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../contexts/authProvider";
+import useAuth from "../customHooks/authHook";
 import { login } from "../services/auth";
 import LoginErrorComponent from "./loginError";
 

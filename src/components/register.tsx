@@ -7,7 +7,7 @@ import {
 import RegisterErrorComponent from "./registerError";
 import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../contexts/authProvider";
+import useAuth from "../customHooks/authHook";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
