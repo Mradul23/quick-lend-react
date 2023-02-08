@@ -1,4 +1,4 @@
-import axiosService from "../services/axiosBase";
+import axiosService from "../axios/axiosBase";
 import { loginCredentials } from "../models/credentialModels";
 
 export default async function login(credentials: loginCredentials) {

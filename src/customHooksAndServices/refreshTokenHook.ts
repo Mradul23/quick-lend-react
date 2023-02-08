@@ -1,19 +1,22 @@
-import axiosService from "../services/axiosBase";
+import axiosService from "../axios/axiosBase";
 import useAuth from "./authContextHook";
 
-const useRefreshToken = async () => {
+const useRefreshToken = () => {
 	const { setUser } = useAuth();
-	return axiosService("/api/refresh", {
-		method: "GET",
-		withCredentials: true,
-	})
-		.then((data) => {
-			setUser(data.data.user);
-			return data.data.user;
+	const refreshToken = async () => {
+		return axiosService("/api/refresh", {
+			method: "GET",
+			withCredentials: true,
 		})
-		.catch((err) => {
-			console.log(err);
-		});
+			.then((data) => {
+				setUser(data.data.user);
+				return data.data.user;
+			})
+			.catch((err) => {
+				return Promise.reject(err);
+			});
+	};
+	return { refreshToken };
 };
 
 export default useRefreshToken;

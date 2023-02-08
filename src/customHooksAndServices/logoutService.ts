@@ -1,4 +1,4 @@
-import axiosService from "../services/axiosBase";
+import axiosService from "../axios/axiosBase";
 
 export async function logout() {
 	return axiosService("/api/user/logout", {
