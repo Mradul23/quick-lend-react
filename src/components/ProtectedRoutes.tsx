@@ -1,5 +1,5 @@
 import { Outlet, Navigate, useLocation } from "react-router-dom";
-import useAuth from "../customHooks/authContextHook";
+import useAuth from "../customHooksAndServices/authContextHook";
 import jwtDecode from "jwt-decode";
 
 interface TokenContents {

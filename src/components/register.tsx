@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from "react";
-import register from "../customHooks/registrationHook";
+import register from "../customHooksAndServices/registrationService";
 import {
 	RegistrationErrors,
 	ErrorAction,
@@ -7,7 +7,7 @@ import {
 import RegisterErrorComponent from "./registerError";
 import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
-import useAuth from "../customHooks/authContextHook";
+import useAuth from "../customHooksAndServices/authContextHook";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
