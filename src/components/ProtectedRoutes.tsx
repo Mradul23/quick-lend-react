@@ -27,7 +27,6 @@ export default function ProtectedRoutes() {
 			refreshToken()
 				.then((data) => {
 					setLoading(false);
-					console.log(data);
 				})
 				.catch((err) => {
 					setLoading(false);
