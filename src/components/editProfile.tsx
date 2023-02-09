@@ -232,6 +232,7 @@ export default function EditProfile() {
 										type="email"
 										value={editEmail}
 										onChange={(e) => setEditEmail(e.target.value)}
+										placeholder="Enter a new email"
 									/>
 									<button
 										type="submit"
@@ -269,6 +270,7 @@ export default function EditProfile() {
 										type="password"
 										value={editPassword}
 										onChange={(e) => setEditPassword(e.target.value)}
+										placeholder="Enter a new password"
 									/>
 									<button
 										type="submit"
@@ -304,6 +306,7 @@ export default function EditProfile() {
 										type="text"
 										value={editFirstName}
 										onChange={(e) => setEditFirstName(e.target.value)}
+										placeholder="Enter a new first name"
 									/>
 									<button
 										type="submit"
@@ -333,6 +336,7 @@ export default function EditProfile() {
 										type="text"
 										value={editLastName}
 										onChange={(e) => setEditLastName(e.target.value)}
+										placeholder="Enter a new last name"
 									/>
 									<button
 										type="submit"
@@ -362,6 +366,7 @@ export default function EditProfile() {
 										type="text"
 										value={editPhoneNumber}
 										onChange={(e) => setEditPhoneNumber(e.target.value)}
+										placeholder="Enter a new phone number"
 									/>
 									<button
 										type="submit"
