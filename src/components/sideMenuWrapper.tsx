@@ -17,7 +17,7 @@ export default function SideMenuWrapper() {
 				<span className="bar-2"></span>
 				<span className="bar-3"></span>
 			</button>
-			<SideMenu showMenu={showMenu} />
+			<SideMenu showMenu={showMenu} setShowMenu={setShowMenu} />
 			<Outlet />
 		</>
 	);
