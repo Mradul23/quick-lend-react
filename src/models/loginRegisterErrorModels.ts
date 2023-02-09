@@ -1,5 +1,6 @@
 export interface LoginErrors {
 	loginPasswordError: boolean;
+	loginEmailError: boolean;
 }
 
 export interface RegistrationErrors {

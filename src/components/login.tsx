@@ -4,6 +4,7 @@ import useAuth from "../customHooksAndServices/authContextHook";
 import useLogin from "../customHooksAndServices/loginHook";
 import LoginErrorComponent from "./loginError";
 
+const EMAIL_REGEX = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,4}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export default function LoginComponent() {
@@ -12,23 +13,29 @@ export default function LoginComponent() {
 	const [loginEmail, setLoginEmail] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
 
+	const [loginEmailError, setLoginEmailError] = useState(false);
 	const [loginPasswordError, setLoginPasswordError] = useState(false);
 	const [requestInProgress, setRequestInProgress] = useState(false);
 
 	useEffect(() => {
 		setLoginPasswordError(false);
+		setLoginEmailError(false);
+		let validLoginEmail = EMAIL_REGEX.test(loginEmail);
+		if (!validLoginEmail && loginEmail.length > 0) {
+			setLoginEmailError(true);
+		}
 		let validLoginPassword = PWD_REGEX.test(loginPassword);
 		if (!validLoginPassword && loginPassword.length > 0) {
 			setLoginPasswordError(true);
 		}
-	}, [loginPassword]);
+	}, [loginPassword, loginEmail]);
 
 	const navigateTo = useNavigate();
 
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		setRequestInProgress(true);
 		e.preventDefault();
-		if (loginPasswordError) {
+		if (loginPasswordError || loginEmailError) {
 			return;
 		}
 		const data = await login({ loginEmail, loginPassword });
@@ -88,7 +95,10 @@ export default function LoginComponent() {
 								Don't have an account yet? Register
 							</Link>
 						</form>
-						<LoginErrorComponent loginPasswordError={loginPasswordError} />
+						<LoginErrorComponent
+							loginPasswordError={loginPasswordError}
+							loginEmailError={loginEmailError}
+						/>
 					</div>
 				</div>
 			</main>

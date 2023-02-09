@@ -2,9 +2,19 @@ import "../index.css";
 import { LoginErrors } from "../models/loginRegisterErrorModels";
 
 export default function LoginErrorComponent(props: LoginErrors): JSX.Element {
-	const { loginPasswordError } = props;
+	const { loginPasswordError, loginEmailError } = props;
 	return (
 		<>
+			<div
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+			${loginEmailError ? "visible" : ""}`}
+			>
+				<p className="text-white text-center">
+					Invalid email.
+					<br />
+					Please enter a valid email address.
+				</p>
+			</div>
 			<div
 				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
       ${loginPasswordError ? "visible" : ""}`}

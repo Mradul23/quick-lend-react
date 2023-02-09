@@ -18,3 +18,7 @@
 .side-menu button:hover {
 	@apply bg-fuchsia-600 text-white;
 }
+
+.side-menu a {
+	@apply w-full;
+}

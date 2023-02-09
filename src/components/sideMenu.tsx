@@ -30,19 +30,22 @@ export default function SideMenu(props: { showMenu: boolean }) {
 				showMenu ? "side-menu-active" : ""
 			}`}
 		>
-			<button>
-				<Link to="edit-profile">Edit your profile</Link>
-			</button>
-			<button>
-				<Link to="request-history">View request history</Link>
-			</button>
-			<button>
-				<Link to="join-community">Join a community</Link>
-			</button>
+			{
+				//Links are rendered as anchor tags in the DOM, hence the use of a tag as selector in the stylesheet
+			}
+			<Link to="edit-profile">
+				<button>Edit your profile</button>
+			</Link>
+			<Link to="request-history">
+				<button>View request history</button>
+			</Link>
+			<Link to="join-community">
+				<button>Join a community</button>
+			</Link>
 			{pathname !== "/dashboard" ? (
-				<button className="mt-auto">
-					<Link to="/dashboard">Back to dashboard</Link>
-				</button>
+				<Link to="/dashboard" className="mt-auto">
+					<button>Back to dashboard</button>
+				</Link>
 			) : null}
 			<button
 				className={pathname === "/dashboard" ? "mt-auto" : ""}
