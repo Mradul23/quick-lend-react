@@ -12,7 +12,7 @@
 }
 
 .side-menu button {
-	@apply border-fuchsia-600 border-2 text-fuchsia-600 mt-8 text-2xl p-3 transition-colors w-4/5;
+	@apply border-fuchsia-600 border-t-2 text-fuchsia-600 text-2xl p-3 transition-colors w-full;
 }
 
 .side-menu button:hover {

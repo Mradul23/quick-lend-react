@@ -5,4 +5,5 @@ export interface UserInfo {
 	lastName: string;
 	phoneNumber: string;
 	email: string;
+	community: string;
 }

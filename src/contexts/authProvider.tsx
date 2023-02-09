@@ -20,6 +20,7 @@ export const AuthContext = createContext<AuthContextType>({
 		lastName: "",
 		phoneNumber: "",
 		email: "",
+		community: "",
 	},
 	setUser: () => {},
 });
@@ -33,6 +34,7 @@ export const AuthProvider = (props: { children: ReactNode }) => {
 		lastName: "",
 		phoneNumber: "",
 		email: "",
+		community: "",
 	});
 
 	return (

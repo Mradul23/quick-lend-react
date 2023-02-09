@@ -18,6 +18,7 @@ export default function SideMenu(props: { showMenu: boolean }) {
 				lastName: "",
 				phoneNumber: "",
 				email: "",
+				community: "",
 			});
 			navigate("/");
 		});
@@ -29,7 +30,11 @@ export default function SideMenu(props: { showMenu: boolean }) {
 			}`}
 		>
 			<button>Edit your profile</button>
-			<button onClick={handleLogout}>Log out</button>
+			<button>View your past requests</button>
+			<button>Join a community</button>
+			<button className="mt-auto" onClick={handleLogout}>
+				Log out
+			</button>
 		</div>
 	);
 }

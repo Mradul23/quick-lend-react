@@ -43,10 +43,18 @@ export default function LoginComponent() {
 
 	return (
 		<>
-			<main className="flex flex-col justify-center items-center w-full login-page mt-8">
+			<Link
+				to="/"
+				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4"
+			>
+				Back to the Landing Page
+			</Link>
+			<main className="flex flex-col justify-center items-center w-full login-page">
 				<div className="wrapper flex flex-row justify-center items-start w-full">
 					<div className="flex flex-col justify-center items-center w-1/4">
-						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3">LOGIN</h1>
+						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
+							LOGIN
+						</h1>
 						<form
 							className="flex flex-col justify-center items-center login-form"
 							onSubmit={handleLogin}
@@ -78,12 +86,6 @@ export default function LoginComponent() {
 							</button>
 							<Link to="/register" className="text-fuchsia-200 mt-4">
 								Don't have an account yet? Register
-							</Link>
-							<Link
-								to="/"
-								className="text-fuchsia-200 mt-4 back-to-landing-page-button"
-							>
-								Back to the Landing Page
 							</Link>
 						</form>
 						<LoginErrorComponent loginPasswordError={loginPasswordError} />
