@@ -15,10 +15,10 @@ export default function DashboardComponent() {
 				Welcome to your dashboard.
 			</p>
 			<div className="flex flex-row justify-center button-container">
-				<Link to={community ? "/active-requests" : "/join-community"}>
+				<Link to={community ? "/active-requests" : "/not-in-community"}>
 					<button>View active community requests</button>
 				</Link>
-				<Link to={community ? "/new-request" : "/join-community"}>
+				<Link to={community ? "/new-request" : "/not-in-community"}>
 					<button className="ml-4">Create a new request</button>
 				</Link>
 			</div>

@@ -4,8 +4,9 @@ import RegisterComponent from "./register";
 import ProtectedRoutes from "./ProtectedRoutes";
 import DashboardComponent from "./dashboard";
 import LandingPageComponent from "./landingPage";
-import JoinACommunity from "./joinACommunity";
+import NotInACommunity from "./notInACommunity";
 import SideMenuWrapper from "./sideMenuWrapper";
+import EditProfile from './editProfile';
 
 function App() {
 	return (
@@ -15,7 +16,8 @@ function App() {
 				<Route element={<ProtectedRoutes />}>
 					<Route element={<SideMenuWrapper />}>
 						<Route path="/dashboard" element={<DashboardComponent />} />
-						<Route path="/join-community" element={<JoinACommunity />} />
+						<Route path="/not-in-community" element={<NotInACommunity />} />
+						<Route path="/edit-profile" element={<EditProfile />} />
 					</Route>
 				</Route>
 				<Route path="/login" element={<LoginComponent />} />

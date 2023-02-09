@@ -2,7 +2,7 @@ import { useEffect, useState, useReducer } from "react";
 import useRegister from "../customHooksAndServices/registrationHook";
 import {
 	RegistrationErrors,
-	ErrorAction,
+	RegisterErrorAction,
 } from "../models/loginRegisterErrorModels";
 import RegisterErrorComponent from "./registerError";
 import "../index.css";
@@ -12,17 +12,19 @@ import useAuth from "../customHooksAndServices/authContextHook";
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^\d{10}$/;
+const EMAIL_REGEX = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,4}$/;
 
 const initialErrorState = {
 	registerUsername: false,
 	registerPassword: false,
 	passwordMatch: false,
 	registerPhoneNumber: false,
+	registerEmail: false,
 };
 
 const errorReducer = (
 	state: RegistrationErrors,
-	action: ErrorAction
+	action: RegisterErrorAction
 ): RegistrationErrors => {
 	switch (action.type) {
 		case "resetAllErrors":
@@ -30,6 +32,7 @@ const errorReducer = (
 			state.registerPassword = false;
 			state.passwordMatch = false;
 			state.registerPhoneNumber = false;
+			state.registerEmail = false;
 			return { ...state };
 		case "setRegisterUsernameError":
 			state.registerUsername = true;
@@ -42,6 +45,9 @@ const errorReducer = (
 			return { ...state };
 		case "setRegisterPhoneNumberError":
 			state.registerPhoneNumber = true;
+			return { ...state };
+		case "setRegisterEmailError":
+			state.registerEmail = true;
 			return { ...state };
 		default:
 			return state;
@@ -71,6 +77,12 @@ export default function RegisterComponent() {
 		dispatchError({
 			type: "resetAllErrors",
 		});
+		let validRegisterEmail = EMAIL_REGEX.test(registerEmail);
+		if (!validRegisterEmail && registerEmail.length > 0) {
+			dispatchError({
+				type: "setRegisterEmailError",
+			});
+		}
 		let validRegisterUsername = USER_REGEX.test(registerUsername);
 		if (!validRegisterUsername && registerUsername.length > 0) {
 			dispatchError({
@@ -96,17 +108,12 @@ export default function RegisterComponent() {
 			});
 		}
 	}, [
+		registerEmail,
 		registerUsername,
 		registerPassword,
 		registerConfirmPassword,
 		registerPhoneNumber,
 	]);
-
-	useEffect(() => {
-		dispatchError({
-			type: "resetAllErrors",
-		});
-	}, []);
 
 	const navigateTo = useNavigate();
 

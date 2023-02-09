@@ -30,9 +30,15 @@ export default function SideMenu(props: { showMenu: boolean }) {
 				showMenu ? "side-menu-active" : ""
 			}`}
 		>
-			<button>Edit your profile</button>
-			<button>View request history</button>
-			<button>Join a community</button>
+			<button>
+				<Link to="edit-profile">Edit your profile</Link>
+			</button>
+			<button>
+				<Link to="request-history">View request history</Link>
+			</button>
+			<button>
+				<Link to="join-community">Join a community</Link>
+			</button>
 			{pathname !== "/dashboard" ? (
 				<button className="mt-auto">
 					<Link to="/dashboard">Back to dashboard</Link>

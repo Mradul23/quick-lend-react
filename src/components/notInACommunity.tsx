@@ -1,4 +1,4 @@
-export default function JoinACommunity() {
+export default function NotInACommunity() {
 	return (
 		<div className="flex flex-col items-center">
 			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">

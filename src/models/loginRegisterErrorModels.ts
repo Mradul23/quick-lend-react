@@ -7,13 +7,15 @@ export interface RegistrationErrors {
 	registerPassword: boolean;
 	registerPhoneNumber: boolean;
 	passwordMatch: boolean;
+	registerEmail: boolean;
 }
 
-export interface ErrorAction {
+export interface RegisterErrorAction {
 	type:
 		| "resetAllErrors"
 		| "setRegisterUsernameError"
 		| "setRegisterPasswordError"
 		| "setPasswordMatchError"
 		| "setRegisterPhoneNumberError"
+		| "setRegisterEmailError";
 }
