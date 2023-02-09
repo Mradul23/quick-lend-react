@@ -1,7 +1,7 @@
 import axiosService from "../axios/axiosBase";
 import { registerCredentials } from "../models/credentialModels";
 
-export default async function register(credentials: registerCredentials) {
+const register = async (credentials: registerCredentials) => {
 	return axiosService("/api/user/register", {
 		method: "POST",
 		headers: {
@@ -15,4 +15,8 @@ export default async function register(credentials: registerCredentials) {
 		.catch((err) => {
 			return err;
 		});
+};
+
+export default function useRegister() {
+	return { register };
 }

@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .hamburger-icon {
-	@apply w-9 h-10 relative cursor-pointer duration-500 z-10;
+	@apply w-9 h-10 relative cursor-pointer duration-500 z-20;
 }
 
 .hamburger-icon span {
-	@apply block absolute h-1 w-full bg-white duration-300 left-0 origin-right rounded;
+	@apply block absolute h-1 w-full bg-white duration-300 origin-right rounded;
 }
 
 .hamburger-icon .bar-1 {
@@ -15,7 +15,7 @@
 }
 
 .hamburger-icon.menu-active .bar-1 {
-	@apply w-3/4;
+	@apply w-3/4 bg-fuchsia-600;
 	transform: rotate(-30deg);
 	top: -2px;
 }
@@ -33,7 +33,7 @@
 }
 
 .hamburger-icon.menu-active .bar-3 {
-	@apply w-3/4;
+	@apply w-3/4 bg-fuchsia-600;
 	transform: rotate(30deg);
 	top: 24px;
 }

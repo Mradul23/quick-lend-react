@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
-import login from "../customHooksAndServices/loginService";
+import useLogin from "../customHooksAndServices/loginHook";
 import LoginErrorComponent from "./loginError";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 export default function LoginComponent() {
 	const { setUser } = useAuth();
+	const { login } = useLogin();
 	const [loginEmail, setLoginEmail] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
 

@@ -1,5 +1,6 @@
 import useAuth from "../customHooksAndServices/authContextHook";
 import HamburgerButton from "./hamburgerIcon";
+import SideMenu from "./sideMenu";
 import { useState } from "react";
 
 export default function DashboardComponent() {
@@ -17,6 +18,7 @@ export default function DashboardComponent() {
 			>
 				<HamburgerButton menuActive={showMenu} />
 			</button>
+			<SideMenu showMenu={showMenu} />
 			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 				Hello {user.firstName}!
 			</h1>

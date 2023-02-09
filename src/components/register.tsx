@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from "react";
-import register from "../customHooksAndServices/registrationService";
+import useRegister from "../customHooksAndServices/registrationHook";
 import {
 	RegistrationErrors,
 	ErrorAction,
@@ -50,6 +50,7 @@ const errorReducer = (
 
 export default function RegisterComponent() {
 	const { setUser } = useAuth();
+	const { register } = useRegister();
 
 	const [errorState, dispatchError] = useReducer(
 		errorReducer,

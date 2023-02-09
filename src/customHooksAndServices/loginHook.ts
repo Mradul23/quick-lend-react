@@ -1,7 +1,7 @@
 import axiosService from "../axios/axiosBase";
 import { loginCredentials } from "../models/credentialModels";
 
-export default async function login(credentials: loginCredentials) {
+const login = async (credentials: loginCredentials) => {
 	return axiosService("/api/user/login", {
 		method: "POST",
 		headers: {
@@ -15,4 +15,8 @@ export default async function login(credentials: loginCredentials) {
 		.catch((err) => {
 			return err;
 		});
+};
+
+export default function useLogin() {
+	return { login };
 }

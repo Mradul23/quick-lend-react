@@ -1,6 +1,6 @@
 import axiosService from "../axios/axiosBase";
 
-export async function logout() {
+const logout = async () => {
 	return axiosService("/api/user/logout", {
 		method: "GET",
 		headers: {
@@ -14,4 +14,8 @@ export async function logout() {
 		.catch((err) => {
 			return err;
 		});
+};
+
+export default function useLogout() {
+	return { logout };
 }
