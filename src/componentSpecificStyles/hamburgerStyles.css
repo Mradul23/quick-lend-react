@@ -6,6 +6,10 @@
 	@apply w-9 h-10 relative cursor-pointer duration-500 z-20;
 }
 
+.hamburger-icon.menu-active {
+	@apply ml-28;
+}
+
 .hamburger-icon span {
 	@apply block absolute h-1 w-full bg-white duration-300 origin-right rounded;
 }
