@@ -36,5 +36,11 @@ export default function ProtectedRoutes() {
 		}
 	}, [decodedToken, currentTime, refreshToken, navigateTo, location]);
 
-	return loading ? <div>Loading...</div> : <Outlet />;
+	return loading ? (
+		<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
+			<p>Loading...</p>
+		</div>
+	) : (
+		<Outlet />
+	);
 }
