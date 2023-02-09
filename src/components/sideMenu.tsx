@@ -1,6 +1,6 @@
 import "../componentSpecificStyles/sideMenuStyles.css";
 import useLogout from "../customHooksAndServices/logoutHook";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
 
 export default function SideMenu(props: { showMenu: boolean }) {
@@ -8,6 +8,7 @@ export default function SideMenu(props: { showMenu: boolean }) {
 	const { logout } = useLogout();
 	const navigate = useNavigate();
 	const { setUser } = useAuth();
+	const { pathname } = useLocation();
 
 	const handleLogout = () => {
 		logout().then(() => {
@@ -30,9 +31,17 @@ export default function SideMenu(props: { showMenu: boolean }) {
 			}`}
 		>
 			<button>Edit your profile</button>
-			<button>View your past requests</button>
+			<button>View request history</button>
 			<button>Join a community</button>
-			<button className="mt-auto" onClick={handleLogout}>
+			{pathname !== "/dashboard" ? (
+				<button className="mt-auto">
+					<Link to="/dashboard">Back to dashboard</Link>
+				</button>
+			) : null}
+			<button
+				className={pathname === "/dashboard" ? "mt-auto" : ""}
+				onClick={handleLogout}
+			>
 				Log out
 			</button>
 		</div>
