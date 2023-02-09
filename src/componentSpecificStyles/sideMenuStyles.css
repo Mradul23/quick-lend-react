@@ -5,7 +5,6 @@
 .side-menu {
 	@apply min-h-screen h-full w-64 text-fuchsia-600 absolute top-0 left-0 z-10 duration-500 ease-out bg-gradient-to-br from-white to-fuchsia-400 shadow-xl shadow-black;
 	transform: translateX(-240%);
-  
 }
 
 .side-menu.side-menu-active {
@@ -17,5 +16,5 @@
 }
 
 .side-menu button:hover {
-  @apply bg-fuchsia-600 text-white;
+	@apply bg-fuchsia-600 text-white;
 }
