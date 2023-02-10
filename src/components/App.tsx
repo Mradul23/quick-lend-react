@@ -6,7 +6,10 @@ import DashboardComponent from "./dashboard";
 import LandingPageComponent from "./landingPage";
 import NotInACommunity from "./notInACommunity";
 import SideMenuWrapper from "./sideMenuWrapper";
-import EditProfile from './editProfile';
+import EditProfile from "./editProfile";
+import CommunityRequiredRoutes from "./communityRequiredRoutes";
+import NewRequest from "./newRequest";
+import ActiveRequests from "./activeRequests";
 
 function App() {
 	return (
@@ -18,6 +21,10 @@ function App() {
 						<Route path="/dashboard" element={<DashboardComponent />} />
 						<Route path="/not-in-community" element={<NotInACommunity />} />
 						<Route path="/edit-profile" element={<EditProfile />} />
+						<Route element={<CommunityRequiredRoutes />}>
+							<Route path="/new-request" element={<NewRequest />} />
+							<Route path="/active-requests" element={<ActiveRequests />} />
+						</Route>
 					</Route>
 				</Route>
 				<Route path="/login" element={<LoginComponent />} />
