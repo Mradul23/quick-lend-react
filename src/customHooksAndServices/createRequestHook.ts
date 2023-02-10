@@ -9,7 +9,7 @@ export default function useCreateRequest() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			data: requestCreationData,
+			data: JSON.stringify(requestCreationData),
 		})
 			.then((response) => {
 				return response;

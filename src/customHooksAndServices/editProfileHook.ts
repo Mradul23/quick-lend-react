@@ -15,10 +15,10 @@ export default function useEditProfile() {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			data: {
+			data: JSON.stringify({
 				editProperty,
 				editValue,
-			},
+			}),
 		})
 			.then((data) => {
 				return data;
