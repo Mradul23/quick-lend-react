@@ -218,15 +218,13 @@ export default function EditProfile() {
 		<>
 			<main className="flex flex-col justify-center items-center w-full edit-page">
 				<div className="wrapper flex flex-row justify-center items-start w-full">
-					<div className="flex flex-col justify-center items-center w-3/5 forms-container">
+					<div className="flex flex-col justify-center items-center forms-container">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
 							Edit your profile
 						</h1>
 						<form className=" w-full" onSubmit={handleEmailUpdate}>
-							<div className="flex flex-col justify-center items-center w-full">
-								<label className="font-thin text-lg text-fuchsia-200">
-									Email
-								</label>
+							<div className="input-set">
+								<label>Email</label>
 								<div className="flex flex-row">
 									<input
 										type="email"
@@ -260,10 +258,8 @@ export default function EditProfile() {
 							</div>
 						</form>
 						<form className=" w-full" onSubmit={handlePasswordUpdate}>
-							<div className="flex flex-col justify-center items-center w-full">
-								<label className="font-thin text-lg text-fuchsia-200">
-									Password
-								</label>
+							<div className="input-set">
+								<label>Password</label>
 								<div className="flex flex-row">
 									<input
 										className=""
@@ -297,10 +293,8 @@ export default function EditProfile() {
 							</div>
 						</form>
 						<form className=" w-full" onSubmit={handleFirstNameUpdate}>
-							<div className="flex flex-col justify-center items-center w-full">
-								<label className="font-thin text-lg text-fuchsia-200">
-									First Name
-								</label>
+							<div className="input-set">
+								<label>First Name</label>
 								<div className="flex flex-row">
 									<input
 										type="text"
@@ -327,10 +321,8 @@ export default function EditProfile() {
 							</div>
 						</form>
 						<form className=" w-full" onSubmit={handleLastNameUpdate}>
-							<div className="flex flex-col justify-center items-center w-full">
-								<label className="font-thin text-lg text-fuchsia-200">
-									Last Name
-								</label>
+							<div className="input-set">
+								<label>Last Name</label>
 								<div className="flex flex-row">
 									<input
 										type="text"
@@ -357,10 +349,8 @@ export default function EditProfile() {
 							</div>
 						</form>
 						<form className=" w-full" onSubmit={handlePhoneNumberUpdate}>
-							<div className="flex flex-col justify-center items-center w-full">
-								<label className="font-thin text-lg text-fuchsia-200">
-									Phone Number
-								</label>
+							<div className="input-set">
+								<label>Phone Number</label>
 								<div className="flex flex-row">
 									<input
 										type="text"
