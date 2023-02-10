@@ -76,7 +76,6 @@ export default function EditProfile() {
 		});
 		let validEditEmail = EMAIL_REGEX.test(editEmail);
 		if (!validEditEmail && editEmail.length > 0) {
-			console.log("Invalid email");
 			dispatchError({
 				type: "setEditEmailError",
 			});
