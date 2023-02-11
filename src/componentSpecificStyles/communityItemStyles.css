@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button[disabled] {
+	@apply border-gray-400 text-gray-400 cursor-not-allowed hover:bg-transparent hover:text-gray-400;
+}
