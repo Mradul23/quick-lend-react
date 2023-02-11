@@ -16,6 +16,8 @@ import RequestDetailsComponent from "./requestDetails";
 import AdminRequiredRoutes from "./adminRequiredRoutes";
 import CreateCommunity from "./createCommunity";
 import CommunityCreatedSuccessfully from "./communityCreatedSuccessfully";
+import JoinACommunity from "./joinCommunity";
+import CommunityJoinedSuccessfully from "./communityJoinedSuccessfully";
 
 function App() {
 	return (
@@ -27,6 +29,11 @@ function App() {
 						<Route path="/dashboard" element={<DashboardComponent />} />
 						<Route path="/not-in-community" element={<NotInACommunity />} />
 						<Route path="/edit-profile" element={<EditProfile />} />
+						<Route path="/join-community" element={<JoinACommunity />} />
+						<Route
+							path="/community-joined-successfully"
+							element={<CommunityJoinedSuccessfully />}
+						/>
 						<Route element={<CommunityRequiredRoutes />}>
 							<Route path="/new-request" element={<NewRequest />} />
 							<Route path="/active-requests" element={<ActiveRequests />} />
