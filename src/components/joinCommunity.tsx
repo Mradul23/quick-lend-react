@@ -3,6 +3,7 @@ import useFetchCommunities from "../customHooksAndServices/fetchCommunities";
 import {
 	BackendCommunityData,
 	FrontendUsableCommunityData,
+	FrontendUsableCommunityDataWithDistance,
 } from "../models/communityModels";
 import CommunityItem from "./communityItem";
 
@@ -13,6 +14,8 @@ export default function JoinACommunity() {
 	const { fetchCommunities } = useFetchCommunities();
 	const [communities, setCommunities] =
 		useState<FrontendUsableCommunityData[]>();
+	const [communitiesDistanceSorted, setCommunitiesDistanceSorted] =
+		useState<FrontendUsableCommunityDataWithDistance[]>();
 
 	useEffect(() => {
 		setLoading(true);
@@ -58,6 +61,54 @@ export default function JoinACommunity() {
 			});
 	});
 
+	useEffect(() => {
+		const deg2rad = (deg: number) => {
+			return deg * (Math.PI / 180);
+		};
+		const getDistanceFromLatLonInKm = (
+			lat1: number,
+			lon1: number,
+			lat2: number,
+			lon2: number
+		) => {
+			const R = 6371;
+			const dLat = deg2rad(lat2 - lat1);
+			const dLon = deg2rad(lon2 - lon1);
+			const a =
+				Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+				Math.cos(deg2rad(lat1)) *
+					Math.cos(deg2rad(lat2)) *
+					Math.sin(dLon / 2) *
+					Math.sin(dLon / 2);
+			const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+			const d = R * c;
+			return d;
+		};
+		if (communities && communities.length > 0 && latitude && longitude) {
+			const communitiesWithDistance: FrontendUsableCommunityDataWithDistance[] =
+				communities.map((community) => {
+					const distance = getDistanceFromLatLonInKm(
+						latitude,
+						longitude,
+						community.communityLatitude,
+						community.communityLongitude
+					);
+					return {
+						communityId: community.communityId,
+						communityName: community.communityName,
+						communityLatitude: community.communityLatitude,
+						communityLongitude: community.communityLongitude,
+						communityDescription: community.communityDescription,
+						distance: distance,
+					};
+				});
+			const sortedCommunities = communitiesWithDistance.sort(
+				(a, b) => a.distance - b.distance
+			);
+			setCommunitiesDistanceSorted(sortedCommunities);
+		}
+	}, [communities, latitude, longitude]);
+
 	if (Loading || !communities) {
 		return (
 			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
@@ -89,8 +140,8 @@ export default function JoinACommunity() {
 					(Sorted in increasing order of distance from your location)
 				</p>
 				<div className="flex flex-col items-center w-1/2">
-					{communities &&
-						communities.map((community, id) => {
+					{communitiesDistanceSorted &&
+						communitiesDistanceSorted.map((community, id) => {
 							return <CommunityItem key={id} community={community} />;
 						})}
 				</div>

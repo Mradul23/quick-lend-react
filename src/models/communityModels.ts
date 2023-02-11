@@ -25,3 +25,8 @@ export interface FrontendUsableCommunityData {
 	communityLongitude: number;
 	communityName: string;
 }
+
+export interface FrontendUsableCommunityDataWithDistance
+	extends FrontendUsableCommunityData {
+	distance: number;
+}
