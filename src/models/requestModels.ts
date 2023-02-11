@@ -35,3 +35,18 @@ export interface FrontendUsableRequestData {
 	requestLatitude: number | null;
 	requestLongitude: number | null;
 }
+
+export interface RequestDetails {
+	_id: string;
+	acceptorUsername: string | null;
+	cancelled: boolean;
+	community: string;
+	completed: boolean;
+	createdAt: string;
+	creatorUsername: string;
+	location: string;
+	requestDescription: string;
+	requestLatitude: number | null;
+	requestLongitude: number | null;
+	contactNumber: string | null;
+}

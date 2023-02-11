@@ -99,9 +99,7 @@ export default function RequestHistory() {
 						}
 					}}
 				>
-					<option value="all" selected>
-						All
-					</option>
+					<option value="all">All</option>
 					<option value="created">Requests I created</option>
 					<option value="accepted">Requests I accepted</option>
 				</select>

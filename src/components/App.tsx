@@ -12,6 +12,7 @@ import NewRequest from "./newRequest";
 import ActiveRequests from "./activeRequests";
 import RequestCreatedSuccessfully from "./requestCreatedSuccessfully";
 import RequestHistory from "./requestHistory";
+import RequestDetailsComponent from "./requestDetails";
 
 function App() {
 	return (
@@ -27,6 +28,10 @@ function App() {
 							<Route path="/new-request" element={<NewRequest />} />
 							<Route path="/active-requests" element={<ActiveRequests />} />
 							<Route path="/request-history" element={<RequestHistory />} />
+							<Route
+								path="/request-details/:id"
+								element={<RequestDetailsComponent />}
+							/>
 							<Route
 								path="/request-created-successfully"
 								element={<RequestCreatedSuccessfully />}
