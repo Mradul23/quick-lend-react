@@ -41,7 +41,7 @@ export default function SideMenu(props: {
 				<button>Edit your profile</button>
 			</Link>
 			<Link to="request-history" onClick={() => setShowMenu(false)}>
-				<button>View request history</button>
+				<button>View past requests</button>
 			</Link>
 			<Link to="join-community" onClick={() => setShowMenu(false)}>
 				<button>Join a community</button>

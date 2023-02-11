@@ -218,7 +218,7 @@ export default function EditProfile() {
 			<main className="flex flex-col justify-center items-center w-full edit-page">
 				<div className="wrapper flex flex-row justify-center items-start w-full">
 					<div className="flex flex-col justify-center items-center forms-container">
-						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
+						<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 							Edit your profile
 						</h1>
 						<form className=" w-full" onSubmit={handleEmailUpdate}>

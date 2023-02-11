@@ -11,6 +11,7 @@ import CommunityRequiredRoutes from "./communityRequiredRoutes";
 import NewRequest from "./newRequest";
 import ActiveRequests from "./activeRequests";
 import RequestCreatedSuccessfully from "./requestCreatedSuccessfully";
+import RequestHistory from "./requestHistory";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 						<Route element={<CommunityRequiredRoutes />}>
 							<Route path="/new-request" element={<NewRequest />} />
 							<Route path="/active-requests" element={<ActiveRequests />} />
+							<Route path="/request-history" element={<RequestHistory />} />
 							<Route
 								path="/request-created-successfully"
 								element={<RequestCreatedSuccessfully />}

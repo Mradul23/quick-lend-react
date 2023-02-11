@@ -7,14 +7,16 @@ import {
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
 
-export default function ActiveRequests() {
+export default function RequestHistory() {
 	const { user } = useAuth();
 	const { fetchRequests } = useFetchCommunityRequests();
-	const [allActiveRequests, setAllActiveRequests] =
+	const [
+		allInactiveRequestsPertainingToUser,
+		setAllInactiveRequestsPertainingToUser,
+	] = useState<FrontendUsableRequestData[]>();
+	const [inactiveRequestsCreatedByUser, setInactiveRequestsCreatedByUser] =
 		useState<FrontendUsableRequestData[]>();
-	const [activeRequestsCreatedByUser, setActiveRequestsCreatedByUser] =
-		useState<FrontendUsableRequestData[]>();
-	const [activeRequestsAcceptedByUser, setActiveRequestsAcceptedByUser] =
+	const [inactiveRequestsAcceptedByUser, setInactiveRequestsAcceptedByUser] =
 		useState<FrontendUsableRequestData[]>();
 	const [requestsToBeDisplayed, setRequestsToBeDisplayed] =
 		useState<FrontendUsableRequestData[]>();
@@ -43,26 +45,35 @@ export default function ActiveRequests() {
 						};
 					}
 				);
-				const activeRequests = requestArray.filter(
-					(request) => !request.completed && !request.cancelled
+				const inactiveRequests = requestArray.filter(
+					(request) => request.completed || request.cancelled
 				);
-				const activeRequestsCreatedByUser = activeRequests.filter(
-					(request) => request.creatorUsername === user.username
+				const inactiveRequestsPertainingToUser = inactiveRequests.filter(
+					(request) =>
+						request.creatorUsername === user.username ||
+						request.acceptorUsername === user.username
 				);
-				const activeRequestsAcceptedByUser = activeRequests.filter(
-					(request) => request.acceptorUsername === user.username
+				const inactiveRequestsCreatedByUser =
+					inactiveRequestsPertainingToUser.filter(
+						(request) => request.creatorUsername === user.username
+					);
+				const inactiveRequestsAcceptedByUser =
+					inactiveRequestsPertainingToUser.filter(
+						(request) => request.acceptorUsername === user.username
+					);
+				setAllInactiveRequestsPertainingToUser(
+					inactiveRequestsPertainingToUser
 				);
-				setAllActiveRequests(activeRequests);
-				setActiveRequestsCreatedByUser(activeRequestsCreatedByUser);
-				setActiveRequestsAcceptedByUser(activeRequestsAcceptedByUser);
-				setRequestsToBeDisplayed(allActiveRequests);
+				setInactiveRequestsCreatedByUser(inactiveRequestsCreatedByUser);
+				setInactiveRequestsAcceptedByUser(inactiveRequestsAcceptedByUser);
+				setRequestsToBeDisplayed(allInactiveRequestsPertainingToUser);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	});
 
-	if (!allActiveRequests) {
+	if (!allInactiveRequestsPertainingToUser) {
 		return (
 			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
 				<p>Loading...</p>
@@ -74,17 +85,17 @@ export default function ActiveRequests() {
 		<>
 			<div className="flex flex-col items-center">
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
-					Active Requests
+					Request history
 				</h1>
 				<select
 					className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white"
 					onChange={(e) => {
 						if (e.target.value === "all") {
-							setRequestsToBeDisplayed(allActiveRequests);
+							setRequestsToBeDisplayed(allInactiveRequestsPertainingToUser);
 						} else if (e.target.value === "created") {
-							setRequestsToBeDisplayed(activeRequestsCreatedByUser);
+							setRequestsToBeDisplayed(inactiveRequestsCreatedByUser);
 						} else if (e.target.value === "accepted") {
-							setRequestsToBeDisplayed(activeRequestsAcceptedByUser);
+							setRequestsToBeDisplayed(inactiveRequestsAcceptedByUser);
 						}
 					}}
 				>
