@@ -13,6 +13,9 @@ import ActiveRequests from "./activeRequests";
 import RequestCreatedSuccessfully from "./requestCreatedSuccessfully";
 import RequestHistory from "./requestHistory";
 import RequestDetailsComponent from "./requestDetails";
+import AdminRequiredRoutes from "./adminRequiredRoutes";
+import CreateCommunity from "./createCommunity";
+import CommunityCreatedSuccessfully from "./communityCreatedSuccessfully";
 
 function App() {
 	return (
@@ -35,6 +38,13 @@ function App() {
 							<Route
 								path="/request-created-successfully"
 								element={<RequestCreatedSuccessfully />}
+							/>
+						</Route>
+						<Route element={<AdminRequiredRoutes />}>
+							<Route path="/create-community" element={<CreateCommunity />} />
+							<Route
+								path="/community-created-successfully"
+								element={<CommunityCreatedSuccessfully />}
 							/>
 						</Route>
 					</Route>

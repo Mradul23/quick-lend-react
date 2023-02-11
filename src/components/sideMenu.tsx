@@ -11,7 +11,8 @@ export default function SideMenu(props: {
 	const { showMenu, setShowMenu } = props;
 	const { logout } = useLogout();
 	const navigate = useNavigate();
-	const { setUser } = useAuth();
+	const { user, setUser } = useAuth();
+	const { username } = user;
 	const { pathname } = useLocation();
 
 	const handleLogout = () => {
@@ -46,6 +47,9 @@ export default function SideMenu(props: {
 			<Link to="join-community" onClick={() => setShowMenu(false)}>
 				<button>Join a community</button>
 			</Link>
+			{username === "admin" && <Link to="create-community" onClick={() => setShowMenu(false)}>
+				<button>Create a community</button>
+			</Link>}
 			{pathname !== "/dashboard" ? (
 				<Link
 					to="/dashboard"
