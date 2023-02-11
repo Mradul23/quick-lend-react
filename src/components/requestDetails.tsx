@@ -122,17 +122,21 @@ export default function RequestDetailsComponent() {
 								{!requestDetails.cancelled &&
 									!requestDetails.completed &&
 									requestDetails.acceptorUsername === username && (
-										<button className="mt-4">
-											Contact {requestDetails.creatorUsername}
-										</button>
+										<a href={`tel:${requestDetails.contactNumber}`}>
+											<button className="mt-4">
+												Contact {requestDetails.creatorUsername}
+											</button>
+										</a>
 									)}
 								{!requestDetails.cancelled &&
 									!requestDetails.completed &&
 									requestDetails.creatorUsername === username &&
 									requestDetails.acceptorUsername && (
-										<button className="mt-4">
-											Contact {requestDetails.acceptorUsername}
-										</button>
+										<a href={`tel:${requestDetails.contactNumber}`}>
+											<button className="mt-4">
+												Contact {requestDetails.acceptorUsername}
+											</button>
+										</a>
 									)}
 								{!requestDetails.cancelled &&
 									!requestDetails.completed &&
