@@ -49,9 +49,16 @@ export default function CommunityItem({
 					>
 						Join community
 					</button>
-					<button className="border-2 border-white hover:bg-white hover:text-fuchsia-700 text-white font-bold py-2 px-4 transition-colors w-3/5">
-						View on map
-					</button>
+					<a
+						href={`https://www.google.com/maps/search/?api=1&query=${community.communityLatitude},${community.communityLongitude}`}
+						target="_blank"
+						rel="noreferrer"
+						className="w-3/5"
+					>
+						<button className="border-2 border-white hover:bg-white hover:text-fuchsia-700 text-white font-bold py-2 px-4 transition-colors w-full">
+							View on map
+						</button>
+					</a>
 				</div>
 			</div>
 		</>

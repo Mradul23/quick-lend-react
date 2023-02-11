@@ -122,8 +122,11 @@ export default function RequestDetailsComponent() {
 								{!requestDetails.cancelled &&
 									!requestDetails.completed &&
 									requestDetails.acceptorUsername === username && (
-										<a href={`tel:${requestDetails.contactNumber}`}>
-											<button className="mt-4">
+										<a
+											href={`tel:${requestDetails.contactNumber}`}
+											className="w-full"
+										>
+											<button className="mt-4 w-full">
 												Contact {requestDetails.creatorUsername}
 											</button>
 										</a>
@@ -136,6 +139,20 @@ export default function RequestDetailsComponent() {
 											<button className="mt-4">
 												Contact {requestDetails.acceptorUsername}
 											</button>
+										</a>
+									)}
+								{!requestDetails.cancelled &&
+									!requestDetails.completed &&
+									requestDetails.requestLatitude &&
+									requestDetails.requestLongitude &&
+									requestDetails.acceptorUsername === username && (
+										<a
+											href={`https://www.google.com/maps/search/?api=1&query=${requestDetails.requestLatitude},${requestDetails.requestLongitude}`}
+											target="_blank"
+											rel="noreferrer"
+											className="w-full"
+										>
+											<button className="mt-4 w-full">View on map</button>
 										</a>
 									)}
 								{!requestDetails.cancelled &&
