@@ -141,7 +141,7 @@ export default function JoinACommunity() {
 				</p>
 				<div className="flex flex-col items-center w-1/2">
 					{communitiesDistanceSorted &&
-						communitiesDistanceSorted.map((community, id) => {
+						communitiesDistanceSorted.slice(0, 10).map((community, id) => {
 							return <CommunityItem key={id} community={community} />;
 						})}
 				</div>
