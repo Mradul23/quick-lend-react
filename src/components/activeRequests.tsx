@@ -7,6 +7,7 @@ import {
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
 import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import ListContainerTransitionVariants from '../framerMotionVariants.ts/listContainerTransitionVariants';
 import { motion } from "framer-motion";
 
 export default function ActiveRequests() {
@@ -64,60 +65,65 @@ export default function ActiveRequests() {
 			});
 	});
 
-	if (!requestsToBeDisplayed) {
-		return (
-			<motion.div
-				className="flex flex-col items-center font-bold text-5xl text-white"
-				variants={PageTransitionVariants}
-				initial="initial"
-				animate="animate"
-				exit="exit"
-			>
-				<p className="mt-20 mb-6">Loading requests...</p>
-			</motion.div>
-		);
-	}
-
 	return (
 		<>
-			<motion.div
-				className="flex flex-col items-center"
-				variants={PageTransitionVariants}
-				initial="initial"
-				animate="animate"
-				exit="exit"
-			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
-					Active Requests
-				</h1>
-				<select
-					className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white"
-					onChange={(e) => {
-						if (e.target.value === "all") {
-							setRequestsToBeDisplayed(allActiveRequests);
-						} else if (e.target.value === "created") {
-							setRequestsToBeDisplayed(activeRequestsCreatedByUser);
-						} else if (e.target.value === "accepted") {
-							setRequestsToBeDisplayed(activeRequestsAcceptedByUser);
-						}
-					}}
+			{!requestsToBeDisplayed && (
+				<motion.div
+					className="flex flex-col items-center font-bold text-5xl text-white"
+					variants={PageTransitionVariants}
+					initial="initial"
+					animate="animate"
 				>
-					<option value="all">All</option>
-					<option value="created">Requests I created</option>
-					<option value="accepted">Requests I accepted</option>
-				</select>
-				<div className="flex flex-col items-center w-1/2">
-					{requestsToBeDisplayed && requestsToBeDisplayed.length > 0 ? (
-						requestsToBeDisplayed.map((request, ind) => {
-							return <RequestItem key={ind} request={request} />;
-						})
-					) : (
-						<h2 className="font-bold text-2xl mt-20 text-white">
-							No matching requests
-						</h2>
+					<p className="mt-20 mb-6">Loading requests...</p>
+				</motion.div>
+			)}
+			{requestsToBeDisplayed && (
+				<motion.div
+					className="flex flex-col items-center"
+					variants={ListContainerTransitionVariants}
+					initial="initial"
+					animate="animate"
+				>
+					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+						Active Requests
+					</h1>
+					<select
+						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white"
+						onChange={(e) => {
+							if (e.target.value === "all") {
+								setRequestsToBeDisplayed(allActiveRequests);
+							} else if (e.target.value === "created") {
+								setRequestsToBeDisplayed(activeRequestsCreatedByUser);
+							} else if (e.target.value === "accepted") {
+								setRequestsToBeDisplayed(activeRequestsAcceptedByUser);
+							}
+						}}
+					>
+						<option value="all">All</option>
+						<option value="created">Requests I created</option>
+						<option value="accepted">Requests I accepted</option>
+					</select>
+					{requestsToBeDisplayed.length > 0 && (
+						<div className="flex flex-col items-center w-1/2">
+							{requestsToBeDisplayed.map((request, ind) => {
+								return <RequestItem key={ind} request={request} />;
+							})}
+						</div>
 					)}
-				</div>
-			</motion.div>
+					{requestsToBeDisplayed.length === 0 && (
+						<motion.div
+							className="flex flex-col items-center font-bold text-5xl text-white"
+							variants={PageTransitionVariants}
+							initial="initial"
+							animate="animate"
+						>
+							<h2 className="font-bold text-2xl mt-20 text-white">
+								No matching requests
+							</h2>
+						</motion.div>
+					)}
+				</motion.div>
+			)}
 		</>
 	);
 }

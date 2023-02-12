@@ -13,10 +13,8 @@ export default function RequestItem({
 		<motion.div
 			className="outer-div"
 			variants={ListItemTransitionVariants}
-			initial="initial"
-			animate="animate"
-			whileHover="whileHover"
-			whileTap="whileTap"
+			whileHover={{ scale: 1.05 }}
+			whileTap={{ scale: 0.95 }}
 		>
 			<Link to={`/request-details/${request._id}`} className="enclosing-link">
 				<div className="flex flex-row items-center w-full justify-between">
