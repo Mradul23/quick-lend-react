@@ -1,5 +1,5 @@
 import "../componentSpecificStyles/newRequestStyles.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useCreateRequest from "../customHooksAndServices/createRequestHook";
 import useAuth from "../customHooksAndServices/authContextHook";
 import { useNavigate } from "react-router-dom";
@@ -14,12 +14,6 @@ export default function NewRequest() {
 	const { createRequest } = useCreateRequest();
 	const { user } = useAuth();
 	const navigateTo = useNavigate();
-
-	useEffect(() => {
-		if (latitude !== null && longitude !== null) {
-			setCoordinateRetrievalInProgress(false);
-		}
-	}, [latitude, longitude]);
 
 	const resetCoordinates = () => {
 		setLatitude(null);
@@ -83,16 +77,18 @@ export default function NewRequest() {
 									if (!e.target.checked) {
 										resetCoordinates();
 									} else if (navigator.geolocation && e.target.checked) {
+										setCoordinateRetrievalInProgress(true);
 										navigator.geolocation.getCurrentPosition(
 											(position) => {
-												setCoordinateRetrievalInProgress(true);
+												setCoordinateRetrievalInProgress(false);
 												setLatitude(position.coords.latitude);
 												setLongitude(position.coords.longitude);
 											},
 											(err) => {
 												if (err.code === err.PERMISSION_DENIED) {
+													setCoordinateRetrievalInProgress(false);
 													alert(
-														"Please enable location services. Reload the page and try again if you are not prompted to enable location services."
+														"Please enable location services. Reload the page and try again if you wish to attach coordinates to this request."
 													);
 													e.target.checked = false;
 												}
@@ -102,12 +98,17 @@ export default function NewRequest() {
 								}}
 							/>
 						</div>
+						{coordinateRetrievalInProgress && (
+							<p className="text-xs text-white mt-2">
+								Retrieving coordinates. This may take a while depending on
+								device hardware. Please wait...
+							</p>
+						)}
 						{latitude && (
 							<p className="text-xs text-white mt-2">
-								Note that the accuracy of the location retrieved depends on
-								device hardware. It may not always be accurate enough to be
-								useful. Please make sure the location description is clear
-								enough by itself.
+								Done! Note that the accuracy of the coordinates depends on
+								device hardware and may not be accurate. Make sure the location
+								above is clear enough by itself.
 							</p>
 						)}
 						<button
