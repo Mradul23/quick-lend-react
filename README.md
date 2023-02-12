@@ -2,7 +2,7 @@
 
 The client side of the quick-lend application. Allows users to put up requests for day-to-day utilities (like chargers, and other electronic devices) to quickly borrow/lend items within a small community.
 
-Built using ReactJS, TailwindCSS.
+Built using ReactJS, Framer Motion & TailwindCSS.
 
 ## Installation
 
