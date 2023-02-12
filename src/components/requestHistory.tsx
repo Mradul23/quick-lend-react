@@ -84,7 +84,7 @@ export default function RequestHistory() {
 				animate="animate"
 				exit="exit"
 			>
-				<p>Loading...</p>
+				<p>Loading requests...</p>
 			</motion.div>
 		);
 	}

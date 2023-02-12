@@ -15,7 +15,8 @@ export default function RequestItem({
 			variants={ListItemTransitionVariants}
 			initial="initial"
 			animate="animate"
-			exit="exit"
+			whileHover="whileHover"
+			whileTap="whileTap"
 		>
 			<Link to={`/request-details/${request._id}`} className="enclosing-link">
 				<div className="flex flex-row items-center w-full justify-between">

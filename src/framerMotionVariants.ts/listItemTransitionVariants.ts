@@ -1,19 +1,19 @@
 const ListItemTransitionVariants = {
 	initial: {
 		opacity: 0,
-		x: 100,
+		y: 100,
 	},
 	animate: {
 		opacity: 1,
-		x: 0,
+		y: 0,
 		transition: {
-			type: "spring",
-			stiffness: 100,
+			type: "linear",
+			duration: 0.4,
+			ease: "easeOut",
 		},
 	},
-	exit: {
-		opacity: 0,
-	},
+	whileHover: { scale: 1.05 },
+	whileTap: { scale: 0.95 },
 };
 
 export default ListItemTransitionVariants;
