@@ -5,7 +5,7 @@ import useFetchRequestDetails from "../customHooksAndServices/fetchRequestDetail
 import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/requestDetailsStyles.css";
 import useRequestUpdate from "../customHooksAndServices/requestUpdateHook";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function RequestDetailsComponent() {

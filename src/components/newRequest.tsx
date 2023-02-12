@@ -3,7 +3,7 @@ import { useState } from "react";
 import useCreateRequest from "../customHooksAndServices/createRequestHook";
 import useAuth from "../customHooksAndServices/authContextHook";
 import { useNavigate } from "react-router-dom";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function NewRequest() {

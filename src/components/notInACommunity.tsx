@@ -1,4 +1,4 @@
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function NotInACommunity() {

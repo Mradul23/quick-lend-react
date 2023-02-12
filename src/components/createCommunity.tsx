@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import useCreateCommunity from "../customHooksAndServices/createCommunityHook";
 import { Community } from "../models/communityModels";
 import { useNavigate } from "react-router-dom";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function CreateCommunity() {

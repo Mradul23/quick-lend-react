@@ -8,7 +8,7 @@ import "../componentSpecificStyles/editProfileStyles.css";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useEditProfile from "../customHooksAndServices/editProfileHook";
 import { FaCheck } from "react-icons/fa";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;

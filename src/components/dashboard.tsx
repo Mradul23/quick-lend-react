@@ -2,7 +2,7 @@ import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/dashboardStyles.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 
 export default function DashboardComponent() {
 	const { user } = useAuth();

@@ -1,7 +1,7 @@
 import { FrontendUsableRequestData } from "../models/requestModels";
 import "../componentSpecificStyles/requestItemStyles.css";
 import { Link } from "react-router-dom";
-import ListItemTransitionVariants from "../framerMotionVariants.ts/listItemTransitionVariants";
+import ListItemTransitionVariants from "../framerMotionVariants/listItemTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function RequestItem({

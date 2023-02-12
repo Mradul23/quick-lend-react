@@ -6,8 +6,8 @@ import {
 } from "../models/requestModels";
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
-import ListContainerTransitionVariants from "../framerMotionVariants.ts/listContainerTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
+import ListContainerTransitionVariants from "../framerMotionVariants/listContainerTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function RequestHistory() {

@@ -6,7 +6,7 @@ import {
 	FrontendUsableCommunityDataWithDistance,
 } from "../models/communityModels";
 import CommunityItem from "./communityItem";
-import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
+import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function JoinACommunity() {
