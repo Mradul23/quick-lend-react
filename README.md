@@ -1,6 +1,6 @@
 # Quick-lend
 
-The client side of the quick-lend application. Allows users to put up requests for day-to-day utilities (like chargers, and other electronic devices) to quickly borrow/lend items within a small community.
+The client side of the quick-lend application. Allows users to put up requests for day-to-day utilities to quickly borrow/lend items within a small community.
 
 Built using ReactJS, Framer Motion & TailwindCSS.
 
