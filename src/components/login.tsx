@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useLogin from "../customHooksAndServices/loginHook";
 import LoginErrorComponent from "./loginError";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 const EMAIL_REGEX = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,4}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -57,7 +59,13 @@ export default function LoginComponent() {
 				Back to the Landing Page
 			</Link>
 			<main className="flex flex-col justify-center items-center w-full login-page">
-				<div className="wrapper flex flex-row justify-center items-start w-full">
+				<motion.div
+					className="wrapper flex flex-row justify-center items-start w-full"
+					variants={PageTransitionVariant}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+				>
 					<div className="flex flex-col justify-center items-center w-1/4">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
 							LOGIN
@@ -100,7 +108,7 @@ export default function LoginComponent() {
 							loginEmailError={loginEmailError}
 						/>
 					</div>
-				</div>
+				</motion.div>
 			</main>
 		</>
 	);

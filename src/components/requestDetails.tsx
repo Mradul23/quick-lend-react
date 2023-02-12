@@ -5,6 +5,8 @@ import useFetchRequestDetails from "../customHooksAndServices/fetchRequestDetail
 import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/requestDetailsStyles.css";
 import useRequestUpdate from "../customHooksAndServices/requestUpdateHook";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 export default function RequestDetailsComponent() {
 	const { user } = useAuth();
@@ -46,15 +48,27 @@ export default function RequestDetailsComponent() {
 
 	if (!requestDetails) {
 		return (
-			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
-				<p>Loading...</p>
-			</div>
+			<motion.div
+				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
+				<p>Loading request details...</p>
+			</motion.div>
 		);
 	}
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Request details{" "}
 					<span className="text-lg">({requestDetails._id})</span>
@@ -185,7 +199,7 @@ export default function RequestDetailsComponent() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

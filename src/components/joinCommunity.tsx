@@ -6,6 +6,8 @@ import {
 	FrontendUsableCommunityDataWithDistance,
 } from "../models/communityModels";
 import CommunityItem from "./communityItem";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 export default function JoinACommunity() {
 	const [latitude, setLatitude] = useState<number | null>(null);
@@ -119,20 +121,32 @@ export default function JoinACommunity() {
 
 	if (!latitude || !longitude) {
 		return (
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Coordinates could not be retrieved.
 				</h1>
 				<p className="font-light text-3xl mb-10 text-fuchsia-200 text-center">
 					Make sure you have location services enabled and try again later.
 				</p>
-			</div>
+			</motion.div>
 		);
 	}
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Available communites
 				</h1>
@@ -145,7 +159,7 @@ export default function JoinACommunity() {
 							return <CommunityItem key={id} community={community} />;
 						})}
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

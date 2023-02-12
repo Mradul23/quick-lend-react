@@ -3,6 +3,8 @@ import { useState } from "react";
 import useCreateRequest from "../customHooksAndServices/createRequestHook";
 import useAuth from "../customHooksAndServices/authContextHook";
 import { useNavigate } from "react-router-dom";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 export default function NewRequest() {
 	const [requestDescription, setRequestDescription] = useState("");
@@ -39,7 +41,13 @@ export default function NewRequest() {
 	};
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Create a new request
 				</h1>
@@ -122,7 +130,7 @@ export default function NewRequest() {
 						</button>
 					</form>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

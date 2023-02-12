@@ -1,13 +1,21 @@
 import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/dashboardStyles.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
 
 export default function DashboardComponent() {
 	const { user } = useAuth();
 
 	const community = user.community;
 	return (
-		<div className="flex flex-col items-center">
+		<motion.div
+			className="flex flex-col items-center"
+			variants={PageTransitionVariant}
+			initial="initial"
+			animate="animate"
+			exit="exit"
+		>
 			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 				Hello {user.firstName}!
 			</h1>
@@ -22,6 +30,6 @@ export default function DashboardComponent() {
 					<button className="ml-4">Create a new request</button>
 				</Link>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

@@ -8,6 +8,8 @@ import "../componentSpecificStyles/editProfileStyles.css";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useEditProfile from "../customHooksAndServices/editProfileHook";
 import { FaCheck } from "react-icons/fa";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^\d{10}$/;
@@ -216,7 +218,13 @@ export default function EditProfile() {
 	return (
 		<>
 			<main className="flex flex-col justify-center items-center w-full edit-page">
-				<div className="wrapper flex flex-row justify-center items-start w-full">
+				<motion.div
+					className="wrapper flex flex-row justify-center items-start w-full"
+					variants={PageTransitionVariant}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+				>
 					<div className="flex flex-col justify-center items-center forms-container">
 						<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 							Edit your profile
@@ -382,7 +390,7 @@ export default function EditProfile() {
 							</div>
 						</form>
 					</div>
-				</div>
+				</motion.div>
 			</main>
 		</>
 	);

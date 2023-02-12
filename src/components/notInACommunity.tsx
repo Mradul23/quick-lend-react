@@ -1,6 +1,15 @@
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
+
 export default function NotInACommunity() {
 	return (
-		<div className="flex flex-col items-center">
+		<motion.div
+			className="flex flex-col items-center"
+			variants={PageTransitionVariant}
+			initial="initial"
+			animate="animate"
+			exit="exit"
+		>
 			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 				Join a Community
 			</h1>
@@ -9,6 +18,6 @@ export default function NotInACommunity() {
 				<br />
 				Please join one from the side bar to access this feature.
 			</p>
-		</div>
+		</motion.div>
 	);
 }

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import useCreateCommunity from "../customHooksAndServices/createCommunityHook";
 import { Community } from "../models/communityModels";
 import { useNavigate } from "react-router-dom";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 export default function CreateCommunity() {
 	const [communityName, setCommunityName] = useState("");
@@ -65,17 +67,21 @@ export default function CreateCommunity() {
 		const response = await createCommunity(requestObj);
 
 		if (response.status === 201) {
-      console.log(response)
 			navigateTo("/community-created-successfully");
 		} else {
-      console.log(response)
 			alert(response.response.data);
 		}
 	};
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Create a new community
 				</h1>
@@ -179,7 +185,7 @@ export default function CreateCommunity() {
 						</button>
 					</form>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

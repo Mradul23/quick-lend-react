@@ -6,6 +6,8 @@ import {
 } from "../models/requestModels";
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
+import { motion } from "framer-motion";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
 
 export default function ActiveRequests() {
 	const { user } = useAuth();
@@ -62,17 +64,29 @@ export default function ActiveRequests() {
 			});
 	});
 
-	if (!allActiveRequests) {
+	if (!requestsToBeDisplayed) {
 		return (
-			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
-				<p>Loading...</p>
-			</div>
+			<motion.div
+				className="flex flex-col items-center font-bold text-5xl text-white"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
+				<p className="mt-20 mb-6">Loading requests...</p>
+			</motion.div>
 		);
 	}
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Active Requests
 				</h1>
@@ -103,7 +117,7 @@ export default function ActiveRequests() {
 						</h2>
 					)}
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

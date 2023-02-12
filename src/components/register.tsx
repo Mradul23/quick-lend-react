@@ -8,6 +8,8 @@ import RegisterErrorComponent from "./registerError";
 import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -154,7 +156,13 @@ export default function RegisterComponent() {
 				Back to the Landing Page
 			</Link>
 			<main className="flex flex-col justify-center items-center w-full register-page">
-				<div className="wrapper flex flex-row justify-center items-start w-full">
+				<motion.div
+					className="wrapper flex flex-row justify-center items-start w-full"
+					variants={PageTransitionVariant}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+				>
 					<div className="flex flex-col justify-center items-center w-3/5">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
 							REGISTER
@@ -259,7 +267,7 @@ export default function RegisterComponent() {
 						</form>
 						<RegisterErrorComponent registerErrors={errorState} />
 					</div>
-				</div>
+				</motion.div>
 			</main>
 		</>
 	);

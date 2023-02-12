@@ -6,6 +6,8 @@ import {
 } from "../models/requestModels";
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import { motion } from "framer-motion";
 
 export default function RequestHistory() {
 	const { user } = useAuth();
@@ -75,15 +77,27 @@ export default function RequestHistory() {
 
 	if (!allInactiveRequestsPertainingToUser) {
 		return (
-			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
+			<motion.div
+				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<p>Loading...</p>
-			</div>
+			</motion.div>
 		);
 	}
 
 	return (
 		<>
-			<div className="flex flex-col items-center">
+			<motion.div
+				className="flex flex-col items-center"
+				variants={PageTransitionVariant}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
 				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 					Request history
 				</h1>
@@ -114,7 +128,7 @@ export default function RequestHistory() {
 						</h2>
 					)}
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

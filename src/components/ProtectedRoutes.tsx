@@ -3,6 +3,8 @@ import useAuth from "../customHooksAndServices/authContextHook";
 import jwtDecode from "jwt-decode";
 import useRefreshToken from "../customHooksAndServices/refreshTokenHook";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
 
 interface TokenContents {
 	exp: number;
@@ -22,14 +24,14 @@ export default function ProtectedRoutes() {
 
 	useEffect(() => {
 		if (decodedToken && decodedToken.exp > currentTime) {
-			setLoading(false);
+			setTimeout(() => setLoading(false), 500); // To prevent the loading screen from flashing on the screen
 		} else {
 			refreshToken()
 				.then((data) => {
-					setLoading(false);
+					setTimeout(() => setLoading(false), 500);
 				})
 				.catch((err) => {
-					setLoading(false);
+					setTimeout(() => setLoading(false), 500);
 					console.log(err);
 					navigateTo("/", { state: { from: location }, replace: true });
 				});
@@ -37,9 +39,15 @@ export default function ProtectedRoutes() {
 	}, [decodedToken, currentTime, refreshToken, navigateTo, location]);
 
 	return loading ? (
-		<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
+		<motion.div
+			className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
+			variants={PageTransitionVariant}
+			initial="initial"
+			animate="animate"
+			exit="exit"
+		>
 			<p>Loading...</p>
-		</div>
+		</motion.div>
 	) : (
 		<Outlet />
 	);
