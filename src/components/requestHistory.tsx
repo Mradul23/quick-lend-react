@@ -6,7 +6,7 @@ import {
 } from "../models/requestModels";
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function RequestHistory() {
@@ -79,7 +79,7 @@ export default function RequestHistory() {
 		return (
 			<motion.div
 				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
@@ -93,7 +93,7 @@ export default function RequestHistory() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

@@ -1,6 +1,8 @@
 import { FrontendUsableRequestData } from "../models/requestModels";
 import "../componentSpecificStyles/requestItemStyles.css";
 import { Link } from "react-router-dom";
+import ListItemTransitionVariants from "../framerMotionVariants.ts/listItemTransitionVariants";
+import { motion } from "framer-motion";
 
 export default function RequestItem({
 	request,
@@ -8,7 +10,13 @@ export default function RequestItem({
 	request: FrontendUsableRequestData;
 }) {
 	return (
-		<div className="outer-div">
+		<motion.div
+			className="outer-div"
+			variants={ListItemTransitionVariants}
+			initial="initial"
+			animate="animate"
+			exit="exit"
+		>
 			<Link to={`/request-details/${request._id}`} className="enclosing-link">
 				<div className="flex flex-row items-center w-full justify-between">
 					<h1 className="font-bold text-2xl text-white">
@@ -35,6 +43,6 @@ export default function RequestItem({
 					</div>
 				</div>
 			</Link>
-		</div>
+		</motion.div>
 	);
 }

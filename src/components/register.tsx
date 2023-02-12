@@ -8,7 +8,7 @@ import RegisterErrorComponent from "./registerError";
 import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -158,7 +158,7 @@ export default function RegisterComponent() {
 			<main className="flex flex-col justify-center items-center w-full register-page">
 				<motion.div
 					className="wrapper flex flex-row justify-center items-start w-full"
-					variants={PageTransitionVariant}
+					variants={PageTransitionVariants}
 					initial="initial"
 					animate="animate"
 					exit="exit"

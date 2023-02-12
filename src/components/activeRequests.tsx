@@ -6,8 +6,8 @@ import {
 } from "../models/requestModels";
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
 
 export default function ActiveRequests() {
 	const { user } = useAuth();
@@ -68,7 +68,7 @@ export default function ActiveRequests() {
 		return (
 			<motion.div
 				className="flex flex-col items-center font-bold text-5xl text-white"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
@@ -82,7 +82,7 @@ export default function ActiveRequests() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

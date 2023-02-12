@@ -1,4 +1,4 @@
-const PageTransitionVariant = {
+const ListItemTransitionVariants = {
 	initial: {
 		opacity: 0,
 		x: 100,
@@ -7,9 +7,8 @@ const PageTransitionVariant = {
 		opacity: 1,
 		x: 0,
 		transition: {
-			type: "linear",
-			duration: 0.5,
-			ease: "easeOut",
+			type: "spring",
+			stiffness: 100,
 		},
 	},
 	exit: {
@@ -17,4 +16,4 @@ const PageTransitionVariant = {
 	},
 };
 
-export default PageTransitionVariant;
+export default ListItemTransitionVariants;

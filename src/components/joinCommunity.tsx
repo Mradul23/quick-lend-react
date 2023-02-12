@@ -6,7 +6,7 @@ import {
 	FrontendUsableCommunityDataWithDistance,
 } from "../models/communityModels";
 import CommunityItem from "./communityItem";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function JoinACommunity() {
@@ -123,7 +123,7 @@ export default function JoinACommunity() {
 		return (
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
@@ -142,7 +142,7 @@ export default function JoinACommunity() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

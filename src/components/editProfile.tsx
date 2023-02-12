@@ -8,7 +8,7 @@ import "../componentSpecificStyles/editProfileStyles.css";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useEditProfile from "../customHooksAndServices/editProfileHook";
 import { FaCheck } from "react-icons/fa";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -220,7 +220,7 @@ export default function EditProfile() {
 			<main className="flex flex-col justify-center items-center w-full edit-page">
 				<motion.div
 					className="wrapper flex flex-row justify-center items-start w-full"
-					variants={PageTransitionVariant}
+					variants={PageTransitionVariants}
 					initial="initial"
 					animate="animate"
 					exit="exit"

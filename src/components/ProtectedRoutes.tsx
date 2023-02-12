@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 import useRefreshToken from "../customHooksAndServices/refreshTokenHook";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 
 interface TokenContents {
 	exp: number;
@@ -41,7 +41,7 @@ export default function ProtectedRoutes() {
 	return loading ? (
 		<motion.div
 			className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
-			variants={PageTransitionVariant}
+			variants={PageTransitionVariants}
 			initial="initial"
 			animate="animate"
 			exit="exit"

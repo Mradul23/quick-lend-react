@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import useCreateCommunity from "../customHooksAndServices/createCommunityHook";
 import { Community } from "../models/communityModels";
 import { useNavigate } from "react-router-dom";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function CreateCommunity() {
@@ -77,7 +77,7 @@ export default function CreateCommunity() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

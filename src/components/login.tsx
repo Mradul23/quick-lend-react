@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useLogin from "../customHooksAndServices/loginHook";
 import LoginErrorComponent from "./loginError";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 const EMAIL_REGEX = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,4}$/;
@@ -61,7 +61,7 @@ export default function LoginComponent() {
 			<main className="flex flex-col justify-center items-center w-full login-page">
 				<motion.div
 					className="wrapper flex flex-row justify-center items-start w-full"
-					variants={PageTransitionVariant}
+					variants={PageTransitionVariants}
 					initial="initial"
 					animate="animate"
 					exit="exit"

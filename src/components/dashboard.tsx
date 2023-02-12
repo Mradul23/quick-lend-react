@@ -2,7 +2,7 @@ import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/dashboardStyles.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 
 export default function DashboardComponent() {
 	const { user } = useAuth();
@@ -11,7 +11,7 @@ export default function DashboardComponent() {
 	return (
 		<motion.div
 			className="flex flex-col items-center"
-			variants={PageTransitionVariant}
+			variants={PageTransitionVariants}
 			initial="initial"
 			animate="animate"
 			exit="exit"

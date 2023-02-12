@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 import "../index.css";
 
@@ -8,7 +8,7 @@ export default function LandingPageComponent() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
@@ -22,7 +22,7 @@ export default function LandingPageComponent() {
 			</motion.div>
 			<motion.div
 				className="flex flex-row justify-center items-center w-full"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

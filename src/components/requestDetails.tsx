@@ -5,7 +5,7 @@ import useFetchRequestDetails from "../customHooksAndServices/fetchRequestDetail
 import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/requestDetailsStyles.css";
 import useRequestUpdate from "../customHooksAndServices/requestUpdateHook";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function RequestDetailsComponent() {
@@ -50,7 +50,7 @@ export default function RequestDetailsComponent() {
 		return (
 			<motion.div
 				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
@@ -64,7 +64,7 @@ export default function RequestDetailsComponent() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"

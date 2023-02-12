@@ -3,7 +3,7 @@ import { useState } from "react";
 import useCreateRequest from "../customHooksAndServices/createRequestHook";
 import useAuth from "../customHooksAndServices/authContextHook";
 import { useNavigate } from "react-router-dom";
-import PageTransitionVariant from "../framerMotionVariants.ts/pageTransitionVariant";
+import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function NewRequest() {
@@ -43,7 +43,7 @@ export default function NewRequest() {
 		<>
 			<motion.div
 				className="flex flex-col items-center"
-				variants={PageTransitionVariant}
+				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"
 				exit="exit"
