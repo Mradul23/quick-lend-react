@@ -7,7 +7,7 @@ import {
 import RequestItem from "./requestItem";
 import useAuth from "../customHooksAndServices/authContextHook";
 import PageTransitionVariants from "../framerMotionVariants.ts/pageTransitionVariants";
-import ListContainerTransitionVariants from '../framerMotionVariants.ts/listContainerTransitionVariants';
+import ListContainerTransitionVariants from "../framerMotionVariants.ts/listContainerTransitionVariants";
 import { motion } from "framer-motion";
 
 export default function ActiveRequests() {
@@ -73,6 +73,7 @@ export default function ActiveRequests() {
 					variants={PageTransitionVariants}
 					initial="initial"
 					animate="animate"
+					exit="exit"
 				>
 					<p className="mt-20 mb-6">Loading requests...</p>
 				</motion.div>
@@ -83,6 +84,7 @@ export default function ActiveRequests() {
 					variants={ListContainerTransitionVariants}
 					initial="initial"
 					animate="animate"
+					exit="exit"
 				>
 					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
 						Active Requests
@@ -116,6 +118,7 @@ export default function ActiveRequests() {
 							variants={PageTransitionVariants}
 							initial="initial"
 							animate="animate"
+							exit="exit"
 						>
 							<h2 className="font-bold text-2xl mt-20 text-white">
 								No matching requests

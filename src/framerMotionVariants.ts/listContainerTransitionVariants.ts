@@ -12,15 +12,19 @@ const ListContainerTransitionVariants = {
 			ease: "easeOut",
 			delayChildren: 0.3,
 			staggerChildren: 0.1,
+			staggerDirection: -1,
 		},
 	},
 	exit: {
 		opacity: 0,
 		x: -100,
 		transition: {
+			delayChildren: 0.1,
+			staggerChildren: 0.1,
 			type: "linear",
 			duration: 0.3,
 			ease: "easeOut",
+			when: "afterChildren",
 		},
 	},
 };
