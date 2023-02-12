@@ -25,7 +25,7 @@ const PageTransitionWrapper = () => {
 	const location = useLocation();
 	return (
 		<AnimatePresence mode="wait">
-			<Routes key={location.pathname}>
+			<Routes location={location} key={location.pathname}>
 				<Route path="/" element={<LandingPageComponent />} />
 				<Route element={<ProtectedRoutes />}>
 					<Route element={<SideMenuWrapper />}>
