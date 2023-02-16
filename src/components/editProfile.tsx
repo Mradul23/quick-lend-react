@@ -8,8 +8,9 @@ import "../componentSpecificStyles/editProfileStyles.css";
 import useAuth from "../customHooksAndServices/authContextHook";
 import useEditProfile from "../customHooksAndServices/editProfileHook";
 import { FaCheck } from "react-icons/fa";
-import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
+import ListContainerTransitionVariants from "../framerMotionVariants/listContainerTransitionVariants";
 import { motion } from "framer-motion";
+import ListItemTransitionVariants from "../framerMotionVariants/listItemTransitionVariants";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const PHONE_REGEX = /^\d{10}$/;
@@ -220,17 +221,20 @@ export default function EditProfile() {
 			<main className="flex flex-col justify-center items-center w-full edit-page">
 				<motion.div
 					className="wrapper flex flex-row justify-center items-start w-full"
-					variants={PageTransitionVariants}
+					variants={ListContainerTransitionVariants}
 					initial="initial"
 					animate="animate"
 					exit="exit"
 				>
 					<div className="flex flex-col justify-center items-center forms-container">
-						<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+						<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 							Edit your profile
 						</h1>
 						<form className=" w-full" onSubmit={handleEmailUpdate}>
-							<div className="input-set">
+							<motion.div
+								className="input-set"
+								variants={ListItemTransitionVariants}
+							>
 								<label>Email</label>
 								<div className="flex flex-row">
 									<input
@@ -262,10 +266,13 @@ export default function EditProfile() {
 										Please enter a valid email address.
 									</p>
 								)}
-							</div>
+							</motion.div>
 						</form>
 						<form className=" w-full" onSubmit={handlePasswordUpdate}>
-							<div className="input-set">
+							<motion.div
+								className="input-set"
+								variants={ListItemTransitionVariants}
+							>
 								<label>Password</label>
 								<div className="flex flex-row">
 									<input
@@ -297,10 +304,13 @@ export default function EditProfile() {
 										Please enter a valid password.
 									</p>
 								)}
-							</div>
+							</motion.div>
 						</form>
 						<form className=" w-full" onSubmit={handleFirstNameUpdate}>
-							<div className="input-set">
+							<motion.div
+								className="input-set"
+								variants={ListItemTransitionVariants}
+							>
 								<label>First Name</label>
 								<div className="flex flex-row">
 									<input
@@ -325,10 +335,13 @@ export default function EditProfile() {
 										}`}
 									/>
 								</div>
-							</div>
+							</motion.div>
 						</form>
 						<form className=" w-full" onSubmit={handleLastNameUpdate}>
-							<div className="input-set">
+							<motion.div
+								className="input-set"
+								variants={ListItemTransitionVariants}
+							>
 								<label>Last Name</label>
 								<div className="flex flex-row">
 									<input
@@ -353,10 +366,13 @@ export default function EditProfile() {
 										}`}
 									/>
 								</div>
-							</div>
+							</motion.div>
 						</form>
 						<form className=" w-full" onSubmit={handlePhoneNumberUpdate}>
-							<div className="input-set">
+							<motion.div
+								className="input-set"
+								variants={ListItemTransitionVariants}
+							>
 								<label>Phone Number</label>
 								<div className="flex flex-row">
 									<input
@@ -387,7 +403,7 @@ export default function EditProfile() {
 										Please enter a valid phone number.
 									</p>
 								)}
-							</div>
+							</motion.div>
 						</form>
 					</div>
 				</motion.div>

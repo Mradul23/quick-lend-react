@@ -11,7 +11,7 @@ export default function CommunityJoinedSuccessfully() {
 			animate="animate"
 			exit="exit"
 		>
-			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 				Community joined successfully
 			</h1>
 			<Link to="/dashboard">

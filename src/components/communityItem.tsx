@@ -31,7 +31,7 @@ export default function CommunityItem({
 		<>
 			<div className="border-white border-2 w-full mt-4 p-4 flex flex-row justify-between">
 				<div className="flex flex-col items-start h-full justify-between w-3/5">
-					<h1 className="font-bold text-3xl text-fuchsia-900">
+					<h1 className="font-bold text-3xl text-fuchsia-600">
 						{community.communityName}{" "}
 						<span className="text-base">
 							({community.distance.toFixed(2)} km)
@@ -41,9 +41,9 @@ export default function CommunityItem({
 						{community.communityDescription}
 					</h2>
 				</div>
-				<div className="flex flex-col justify-between items-end w-1/3">
+				<div className="flex flex-col justify-between items-end w-1/3 community-item-buttons">
 					<button
-						className="mb-4 border-2 border-white hover:bg-white hover:text-fuchsia-700 text-white font-bold py-2 px-4 transition-colors w-3/5"
+						className="w-3/5"
 						onClick={handleJoinCommunity}
 						disabled={community.communityId === user.community}
 					>
@@ -55,9 +55,7 @@ export default function CommunityItem({
 						rel="noreferrer"
 						className="w-3/5"
 					>
-						<button className="border-2 border-white hover:bg-white hover:text-fuchsia-700 text-white font-bold py-2 px-4 transition-colors w-full">
-							View on map
-						</button>
+						<button className="w-full">View on map</button>
 					</a>
 				</div>
 			</div>

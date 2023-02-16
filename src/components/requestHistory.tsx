@@ -97,7 +97,7 @@ export default function RequestHistory() {
 					animate="animate"
 					exit="exit"
 				>
-					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 						Request history
 					</h1>
 					<select

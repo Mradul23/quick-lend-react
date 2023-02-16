@@ -7,6 +7,8 @@ import "../componentSpecificStyles/requestDetailsStyles.css";
 import useRequestUpdate from "../customHooksAndServices/requestUpdateHook";
 import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
+import RequestDetailsTransitionVariants from "../framerMotionVariants/requestDetailsTransitionVariants";
+import ListItemTransitionVariants from "../framerMotionVariants/listItemTransitionVariants";
 
 export default function RequestDetailsComponent() {
 	const { user } = useAuth();
@@ -69,43 +71,58 @@ export default function RequestDetailsComponent() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 					Request details{" "}
 					<span className="text-lg">({requestDetails._id})</span>
 				</h1>
-				<div className="flex flex-col items-center">
-					<div className="flex flex-col details-container">
-						<p>
-							<span>Description: </span>
+				<div className="flex flex-col items-center w-11/12">
+					<motion.div
+						className="flex flex-col items-center details-container w-full break-all"
+						variants={RequestDetailsTransitionVariants}
+						initial="initial"
+						animate="animate"
+						exit="exit"
+					>
+						<motion.p variants={ListItemTransitionVariants}>
+							<span>Description </span>
 							{requestDetails.requestDescription}
-						</p>
-						<p>
-							<span>Request location: </span>
+						</motion.p>
+						<motion.p variants={ListItemTransitionVariants}>
+							<span>Request location </span>
 							{requestDetails.location}
-						</p>
-						<div className="secondary-details flex justify-evenly">
-							<div className="request-properties">
+						</motion.p>
+						<motion.div
+							className="secondary-details flex justify-evenly w-full"
+							variants={RequestDetailsTransitionVariants}
+						>
+							<motion.div
+								className="request-properties"
+								variants={ListItemTransitionVariants}
+							>
 								<p>
-									<span>Creator username: </span>
+									<span>Created by </span>
 									{requestDetails.creatorUsername}
 								</p>
 								<p>
-									<span>Request accepted by: </span>
+									<span className="mr-auto">Accepted by </span>
 									{requestDetails.acceptorUsername
 										? requestDetails.acceptorUsername
 										: "-"}
 								</p>
 								<p>
-									<span>Request status: </span>
+									<span>Status </span>
 									{requestDetails.completed
 										? "Completed"
 										: requestDetails.cancelled
 										? "Cancelled"
 										: "Open"}
 								</p>
-							</div>
-							<div className="separator"></div>
-							<div className="request-actions mt-16 flex flex-col">
+							</motion.div>
+							<motion.div className="separator"></motion.div>
+							<motion.div
+								className="request-actions mt-16 flex flex-col w-1/4"
+								variants={ListItemTransitionVariants}
+							>
 								{!requestDetails.cancelled &&
 									!requestDetails.completed &&
 									!requestDetails.acceptorUsername &&
@@ -195,9 +212,9 @@ export default function RequestDetailsComponent() {
 											Mark as complete
 										</button>
 									)}
-							</div>
-						</div>
-					</div>
+							</motion.div>
+						</motion.div>
+					</motion.div>
 				</div>
 			</motion.div>
 		</>

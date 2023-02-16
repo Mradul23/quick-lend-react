@@ -11,11 +11,11 @@ export default function CommunityCreatedSuccessfully() {
 			animate="animate"
 			exit="exit"
 		>
-			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-900">
+			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 				Community created successfully
 			</h1>
 			<Link to="/dashboard">
-				<button className="hover:bg-white hover:text-fuchsia-700 text-white font-bold p-4 transition-colors mt-8 border-2">
+				<button className="border-2 border-white hover:bg-white hover:text-fuchsia-700 hover:-translate-x-1 hover:-translate-y-1 text-white font-bold py-2 px-4 transition-all;">
 					Back to dashboard
 				</button>
 			</Link>

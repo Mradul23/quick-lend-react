@@ -7,11 +7,11 @@
 }
 
 .details-container p {
-	@apply text-4xl mt-4 text-white;
+	@apply text-xl mt-4 text-white;
 }
 
 .details-container p span {
-	@apply text-fuchsia-900 font-bold;
+	@apply text-fuchsia-600 font-bold text-4xl;
 }
 
 .request-properties {
@@ -19,11 +19,11 @@
 }
 
 .request-properties p {
-	@apply text-white text-xl;
+	@apply text-white text-xl flex justify-between items-end;
 }
 
-.secondary-details div {
-	@apply w-2/5;
+.request-properties p span {
+	@apply mr-12 text-4xl border-b-2 border-fuchsia-600 border-dashed;
 }
 
 .separator {
@@ -31,5 +31,7 @@
 }
 
 .request-actions button {
-	@apply border-2 border-white hover:bg-white hover:text-fuchsia-700 text-white font-bold py-2 px-4 transition-colors;
+	@apply border-2 border-white;
+	@apply hover:bg-white hover:text-fuchsia-700 hover:-translate-x-1 hover:-translate-y-1;
+	@apply text-white font-bold py-2 px-4 transition-all;
 }
