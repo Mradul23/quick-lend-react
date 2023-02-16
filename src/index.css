@@ -65,3 +65,26 @@ form label {
 .error-div.visible {
 	@apply opacity-100 translate-y-0 h-min relative;
 }
+
+.landing-page-football {
+	@apply absolute right-0 -bottom-24;
+	transform: scale(2.5);
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.landing-page-football path {
+	transform-origin: 62px 62px;
+	animation: rotate 20s linear infinite;
+}
+
+.landing-page-charger {
+	@apply absolute right-0 top-80;
+}
