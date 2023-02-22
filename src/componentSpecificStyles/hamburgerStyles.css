@@ -7,7 +7,13 @@
 }
 
 .hamburger-icon.menu-active {
-	@apply ml-28;
+	@apply mdm:ml-28 md:scale-150 md:mt-12;
+}
+
+@media (max-width: 768px) {
+	.hamburger-icon.menu-active {
+		margin-left: 45%;
+	}
 }
 
 .hamburger-icon span {
