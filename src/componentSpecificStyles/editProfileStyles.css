@@ -7,7 +7,11 @@ form {
 }
 
 form .input-set {
-	@apply flex flex-col justify-center items-start w-full;
+	@apply flex flex-col justify-center items-start w-full md:items-start;
+}
+
+form .input-set > div {
+	@apply md:flex-col;
 }
 
 .input-set label {
@@ -23,14 +27,22 @@ form input {
 	outline: none;
 }
 
+.forms-container {
+	@apply md:ml-4;
+}
+
 .forms-container button {
 	@apply hover:bg-white hover:text-fuchsia-700 text-white font-bold p-1 transition-colors h-10;
 	border: 1px solid white;
-	@apply border-l-0;
+	@apply mdm:border-l-0 md:self-start md:mb-8;
 }
 
 .forms-container button[disabled] {
 	@apply border-gray-400 text-gray-400 cursor-not-allowed hover:bg-transparent hover:text-gray-400;
+}
+
+.button-check-container {
+	@apply self-start flex flex-row;
 }
 
 .change-success-check-mark {

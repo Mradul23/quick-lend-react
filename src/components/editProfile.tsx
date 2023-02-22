@@ -227,7 +227,7 @@ export default function EditProfile() {
 					exit="exit"
 				>
 					<div className="flex flex-col justify-center items-center forms-container">
-						<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+						<h1 className="font-bold text-5xl mt-20 mb-6 -ml-16 md:ml-0 text-fuchsia-600">
 							Edit your profile
 						</h1>
 						<form className=" w-full" onSubmit={handleEmailUpdate}>
@@ -243,23 +243,25 @@ export default function EditProfile() {
 										onChange={(e) => setEditEmail(e.target.value)}
 										placeholder="Enter a new email"
 									/>
-									<button
-										type="submit"
-										disabled={
-											requestInProgress ||
-											errorState.editEmail ||
-											!editEmail ||
-											displayEmailChangeSuccess
-										}
-									>
-										Update
-									</button>
+									<div className="flex flex-row  button-check-container">
+										<button
+											type="submit"
+											disabled={
+												requestInProgress ||
+												errorState.editEmail ||
+												!editEmail ||
+												displayEmailChangeSuccess
+											}
+										>
+											Update
+										</button>
 
-									<FaCheck
-										className={`change-success-check-mark ${
-											displayEmailChangeSuccess ? "show-check" : ""
-										}`}
-									/>
+										<FaCheck
+											className={`change-success-check-mark ${
+												displayEmailChangeSuccess ? "show-check" : ""
+											}`}
+										/>
+									</div>
 								</div>
 								{errorState.editEmail && (
 									<p className="text-white text-xs italic">
@@ -282,22 +284,24 @@ export default function EditProfile() {
 										onChange={(e) => setEditPassword(e.target.value)}
 										placeholder="Enter a new password"
 									/>
-									<button
-										type="submit"
-										disabled={
-											requestInProgress ||
-											errorState.editPassword ||
-											!editPassword ||
-											displayPasswordChangeSuccess
-										}
-									>
-										Update
-									</button>
-									<FaCheck
-										className={`change-success-check-mark ${
-											displayPasswordChangeSuccess ? "show-check" : ""
-										}`}
-									/>
+									<div className="flex flex-row button-check-container">
+										<button
+											type="submit"
+											disabled={
+												requestInProgress ||
+												errorState.editPassword ||
+												!editPassword ||
+												displayPasswordChangeSuccess
+											}
+										>
+											Update
+										</button>
+										<FaCheck
+											className={`change-success-check-mark ${
+												displayPasswordChangeSuccess ? "show-check" : ""
+											}`}
+										/>
+									</div>
 								</div>
 								{errorState.editPassword && (
 									<p className="text-white text-xs italic">
@@ -319,21 +323,23 @@ export default function EditProfile() {
 										onChange={(e) => setEditFirstName(e.target.value)}
 										placeholder="Enter a new first name"
 									/>
-									<button
-										type="submit"
-										disabled={
-											requestInProgress ||
-											!editFirstName ||
-											displayFirstNameChangeSuccess
-										}
-									>
-										Update
-									</button>
-									<FaCheck
-										className={`change-success-check-mark ${
-											displayFirstNameChangeSuccess ? "show-check" : ""
-										}`}
-									/>
+									<div className="flex flex-row button-check-container">
+										<button
+											type="submit"
+											disabled={
+												requestInProgress ||
+												!editFirstName ||
+												displayFirstNameChangeSuccess
+											}
+										>
+											Update
+										</button>
+										<FaCheck
+											className={`change-success-check-mark ${
+												displayFirstNameChangeSuccess ? "show-check" : ""
+											}`}
+										/>
+									</div>
 								</div>
 							</motion.div>
 						</form>
@@ -350,21 +356,23 @@ export default function EditProfile() {
 										onChange={(e) => setEditLastName(e.target.value)}
 										placeholder="Enter a new last name"
 									/>
-									<button
-										type="submit"
-										disabled={
-											requestInProgress ||
-											!editLastName ||
-											displayLastNameChangeSuccess
-										}
-									>
-										Update
-									</button>
-									<FaCheck
-										className={`change-success-check-mark ${
-											displayLastNameChangeSuccess ? "show-check" : ""
-										}`}
-									/>
+									<div className="flex flex-row button-check-container">
+										<button
+											type="submit"
+											disabled={
+												requestInProgress ||
+												!editLastName ||
+												displayLastNameChangeSuccess
+											}
+										>
+											Update
+										</button>
+										<FaCheck
+											className={`change-success-check-mark ${
+												displayLastNameChangeSuccess ? "show-check" : ""
+											}`}
+										/>
+									</div>
 								</div>
 							</motion.div>
 						</form>
@@ -381,22 +389,24 @@ export default function EditProfile() {
 										onChange={(e) => setEditPhoneNumber(e.target.value)}
 										placeholder="Enter a new phone number"
 									/>
-									<button
-										type="submit"
-										disabled={
-											requestInProgress ||
-											errorState.editPhoneNumber ||
-											!editPhoneNumber ||
-											displayPhoneNumberChangeSuccess
-										}
-									>
-										Update
-									</button>
-									<FaCheck
-										className={`change-success-check-mark ${
-											displayPhoneNumberChangeSuccess ? "show-check" : ""
-										}`}
-									/>
+									<div className="flex flex-row button-check-container">
+										<button
+											type="submit"
+											disabled={
+												requestInProgress ||
+												errorState.editPhoneNumber ||
+												!editPhoneNumber ||
+												displayPhoneNumberChangeSuccess
+											}
+										>
+											Update
+										</button>
+										<FaCheck
+											className={`change-success-check-mark ${
+												displayPhoneNumberChangeSuccess ? "show-check" : ""
+											}`}
+										/>
+									</div>
 								</div>
 								{errorState.editPhoneNumber && (
 									<p className="text-white text-xs italic">
