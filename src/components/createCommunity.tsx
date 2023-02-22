@@ -82,7 +82,7 @@ export default function CreateCommunity() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 					Create a new community
 				</h1>
 				<div className="flex flex-col items-center form-wrapper w-3/5">

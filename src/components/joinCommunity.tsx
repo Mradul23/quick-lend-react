@@ -128,7 +128,7 @@ export default function JoinACommunity() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 					Coordinates could not be retrieved.
 				</h1>
 				<p className="font-light text-3xl mb-10 text-fuchsia-200 text-center">
@@ -147,13 +147,13 @@ export default function JoinACommunity() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 					Available communites
 				</h1>
 				<p className="font-light text-3xl mb-10 text-fuchsia-200 text-center">
 					(Sorted in increasing order of distance from your location)
 				</p>
-				<div className="flex flex-col items-center w-1/2">
+				<div className="flex flex-col items-center w-1/2 md:w-4/5">
 					{communitiesDistanceSorted &&
 						communitiesDistanceSorted.slice(0, 10).map((community, id) => {
 							return <CommunityItem key={id} community={community} />;
