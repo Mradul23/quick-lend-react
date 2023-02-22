@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .side-menu {
-	@apply min-h-screen h-full w-64 md:w-full text-fuchsia-600 absolute top-0 left-0 z-10 duration-500 ease-out;
+	@apply min-h-screen h-full w-64 md:w-full text-fuchsia-600 fixed top-0 left-0 z-10 duration-500 ease-out;
 	@apply bg-gradient-to-b from-white to-fuchsia-300 shadow-xl shadow-black;
 	transform: translateX(-240%);
 }

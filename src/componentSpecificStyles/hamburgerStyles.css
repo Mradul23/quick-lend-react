@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .hamburger-icon {
-	@apply w-9 h-10 relative cursor-pointer duration-500 z-20;
+	@apply w-9 h-10 fixed cursor-pointer duration-500 z-20;
 }
 
 .hamburger-icon.menu-active {
-	@apply mdm:ml-28 md:scale-150 md:mt-12;
+	@apply mdm:ml-28 md:scale-150 md:mt-12 fixed;
 }
 
 @media (max-width: 768px) {

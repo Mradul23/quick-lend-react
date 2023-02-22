@@ -3,6 +3,7 @@ import useLogout from "../customHooksAndServices/logoutHook";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
 import { Dispatch, SetStateAction } from "react";
+import { useEffect } from "react";
 
 export default function SideMenu(props: {
 	showMenu: boolean;
@@ -14,6 +15,15 @@ export default function SideMenu(props: {
 	const { user, setUser } = useAuth();
 	const { username } = user;
 	const { pathname } = useLocation();
+
+	useEffect(() => {
+		if (showMenu) {
+			document.body.style.overflow = "hidden"; // Prevents scrolling in the background when menu is open
+		}
+		if (!showMenu) {
+			document.body.style.overflow = "auto";
+		}
+	}, [showMenu]);
 
 	const handleLogout = () => {
 		logout().then(() => {
@@ -47,9 +57,11 @@ export default function SideMenu(props: {
 			<Link to="join-community" onClick={() => setShowMenu(false)}>
 				<button>Join a community</button>
 			</Link>
-			{username === "admin" && <Link to="create-community" onClick={() => setShowMenu(false)}>
-				<button>Create a community</button>
-			</Link>}
+			{username === "admin" && (
+				<Link to="create-community" onClick={() => setShowMenu(false)}>
+					<button>Create a community</button>
+				</Link>
+			)}
 			{pathname !== "/dashboard" ? (
 				<Link
 					to="/dashboard"
