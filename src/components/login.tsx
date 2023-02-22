@@ -5,6 +5,7 @@ import useLogin from "../customHooksAndServices/loginHook";
 import LoginErrorComponent from "./loginError";
 import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { motion } from "framer-motion";
+import { FaArrowLeft } from "react-icons/fa";
 
 const EMAIL_REGEX = /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[A-z]{2,4}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -56,7 +57,8 @@ export default function LoginComponent() {
 				to="/"
 				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4"
 			>
-				Back to the Landing Page
+				<FaArrowLeft className="mdm:hidden" />
+				<span className="md:hidden">Back to the Landing Page</span>
 			</Link>
 			<main className="flex flex-col justify-center items-center w-full login-page">
 				<motion.div
@@ -66,7 +68,7 @@ export default function LoginComponent() {
 					animate="animate"
 					exit="exit"
 				>
-					<div className="flex flex-col justify-center items-center w-1/4">
+					<div className="flex flex-col justify-center items-center w-1/4 md:w-full">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
 							LOGIN
 						</h1>
@@ -94,7 +96,7 @@ export default function LoginComponent() {
 							/>
 							<button
 								type="submit"
-								className="login-button"
+								className="login-button md:scale-125 md:mt-8 md:mb-8"
 								disabled={requestInProgress}
 							>
 								Login

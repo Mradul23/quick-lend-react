@@ -9,6 +9,7 @@ import "../index.css";
 import { useNavigate, Link } from "react-router-dom";
 import useAuth from "../customHooksAndServices/authContextHook";
 import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
+import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -153,7 +154,8 @@ export default function RegisterComponent() {
 				to="/"
 				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4"
 			>
-				Back to the Landing Page
+				<FaArrowLeft className="mdm:hidden" />
+				<span className="md:hidden">Back to the Landing Page</span>
 			</Link>
 			<main className="flex flex-col justify-center items-center w-full register-page">
 				<motion.div
@@ -163,15 +165,15 @@ export default function RegisterComponent() {
 					animate="animate"
 					exit="exit"
 				>
-					<div className="flex flex-col justify-center items-center w-3/5">
+					<div className="flex flex-col justify-center items-center w-3/5 md:w-full">
 						<h1 className="font-thin text-2xl text-fuchsia-200 mb-3 mt-8">
 							REGISTER
 						</h1>
 						<form
-							className=" w-full register-details-grid register-form"
+							className=" w-full register-details-grid register-form md:w-4/5"
 							onSubmit={handleRegister}
 						>
-							<div className="grid grid-cols-4">
+							<div className="grid grid-cols-4 md:grid-cols-1">
 								<label htmlFor="register-email">Email</label>
 								<input
 									type="email"
@@ -246,7 +248,7 @@ export default function RegisterComponent() {
 							<div className="flex flex-col items-center">
 								<button
 									type="submit"
-									className="register-button"
+									className="register-button md:scale-125 md:mt-8 md:mb-8"
 									disabled={
 										requestInProgress ||
 										errorState.passwordMatch ||
@@ -259,7 +261,7 @@ export default function RegisterComponent() {
 								</button>
 								<Link
 									to="/login"
-									className="register-login-link text-white mt-4"
+									className="register-login-link text-white mt-4 mb-8"
 								>
 									Already have an account? Login
 								</Link>
