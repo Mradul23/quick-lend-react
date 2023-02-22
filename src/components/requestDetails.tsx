@@ -71,7 +71,7 @@ export default function RequestDetailsComponent() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 					Request details{" "}
 					<span className="text-lg">({requestDetails._id})</span>
 				</h1>
@@ -83,16 +83,19 @@ export default function RequestDetailsComponent() {
 						animate="animate"
 						exit="exit"
 					>
-						<motion.p variants={ListItemTransitionVariants}>
+						<motion.p variants={ListItemTransitionVariants} className="text-center">
 							<span>Description </span>
+							<br className="mdm:hidden" />
 							{requestDetails.requestDescription}
 						</motion.p>
-						<motion.p variants={ListItemTransitionVariants}>
+						<motion.p variants={ListItemTransitionVariants} className="text-center">
 							<span>Request location </span>
+							<br className="mdm:hidden" />
+
 							{requestDetails.location}
 						</motion.p>
 						<motion.div
-							className="secondary-details flex justify-evenly w-full"
+							className="secondary-details flex justify-evenly w-full md:flex-col"
 							variants={RequestDetailsTransitionVariants}
 						>
 							<motion.div
@@ -118,9 +121,9 @@ export default function RequestDetailsComponent() {
 										: "Open"}
 								</p>
 							</motion.div>
-							<motion.div className="separator"></motion.div>
+							<motion.div className="separator md:hidden"></motion.div>
 							<motion.div
-								className="request-actions mt-16 flex flex-col w-1/4"
+								className="request-actions mt-16 flex flex-col w-1/4 md:w-full md:mb-8"
 								variants={ListItemTransitionVariants}
 							>
 								{!requestDetails.cancelled &&
