@@ -8,7 +8,7 @@ export default function RegisterErrorComponent(props: {
 	return (
 		<>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div ${
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 ${
 					registerErrors.registerEmail ? "visible" : ""
 				}`}
 			>
@@ -19,7 +19,7 @@ export default function RegisterErrorComponent(props: {
 				</p>
 			</div>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 
 								${registerErrors.registerUsername ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
@@ -30,7 +30,7 @@ export default function RegisterErrorComponent(props: {
 				</p>
 			</div>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 
 								${registerErrors.registerPassword ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
@@ -41,13 +41,13 @@ export default function RegisterErrorComponent(props: {
 				</p>
 			</div>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 
 								${registerErrors.passwordMatch ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">Passwords do not match.</p>
 			</div>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5
 								${registerErrors.registerPhoneNumber ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">

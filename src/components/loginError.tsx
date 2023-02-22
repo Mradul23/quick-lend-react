@@ -6,7 +6,7 @@ export default function LoginErrorComponent(props: LoginErrors): JSX.Element {
 	return (
 		<>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 
 			${loginEmailError ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
@@ -16,7 +16,7 @@ export default function LoginErrorComponent(props: LoginErrors): JSX.Element {
 				</p>
 			</div>
 			<div
-				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div 
+				className={`flex justify-center items-center border-white mt-5 p-3 border-t error-div w-4/5 
       ${loginPasswordError ? "visible" : ""}`}
 			>
 				<p className="text-white text-center">
