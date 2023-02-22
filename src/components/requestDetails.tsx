@@ -51,7 +51,7 @@ export default function RequestDetailsComponent() {
 	if (!requestDetails) {
 		return (
 			<motion.div
-				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white"
+				className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white text-center"
 				variants={PageTransitionVariants}
 				initial="initial"
 				animate="animate"

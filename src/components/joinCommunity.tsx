@@ -113,7 +113,7 @@ export default function JoinACommunity() {
 
 	if (Loading || !communities) {
 		return (
-			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white">
+			<div className="flex flex-col items-center font-bold text-5xl mt-20 mb-6 text-white text-center">
 				<p>Loading communities...</p>
 			</div>
 		);

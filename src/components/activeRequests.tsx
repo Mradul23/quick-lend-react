@@ -69,7 +69,7 @@ export default function ActiveRequests() {
 		<>
 			{!requestsToBeDisplayed && (
 				<motion.div
-					className="flex flex-col items-center font-bold text-5xl text-white"
+					className="flex flex-col items-center font-bold text-5xl text-white text-center"
 					variants={PageTransitionVariants}
 					initial="initial"
 					animate="animate"
