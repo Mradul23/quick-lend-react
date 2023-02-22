@@ -48,10 +48,10 @@ export default function NewRequest() {
 				animate="animate"
 				exit="exit"
 			>
-				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+				<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 					Create a new request
 				</h1>
-				<div className="flex flex-col items-center form-container w-3/5">
+				<div className="flex flex-col items-center form-container w-3/5 md:w-4/5">
 					<form
 						className="mt-1 flex flex-col items-center w-full"
 						onSubmit={handleCreateRequest}
@@ -107,13 +107,13 @@ export default function NewRequest() {
 							/>
 						</div>
 						{coordinateRetrievalInProgress && (
-							<p className="text-xs text-white mt-2">
+							<p className="text-xs text-white mt-2 text-center">
 								Retrieving coordinates. This may take a while depending on
 								device hardware. Please wait...
 							</p>
 						)}
 						{latitude && (
-							<p className="text-xs text-white mt-2">
+							<p className="text-xs text-white mt-2 text-center">
 								Done! Note that the accuracy of the coordinates depends on
 								device hardware and may not be accurate. Make sure the location
 								above is clear enough by itself.
