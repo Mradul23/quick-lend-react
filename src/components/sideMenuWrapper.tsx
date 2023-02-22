@@ -8,7 +8,7 @@ export default function SideMenuWrapper() {
 	return (
 		<>
 			<button
-				className={`hamburger-icon fa fa-check absolute ml-8 mt-8 self-start text-white text-4xl ${
+				className={`hamburger-icon fa fa-check absolute ml-8 mt-8 md:ml-4 md:mt-5 self-start text-white text-4xl ${
 					showMenu ? "menu-active" : ""
 				}`}
 				onClick={() => setShowMenu(!showMenu)}

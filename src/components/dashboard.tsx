@@ -19,15 +19,15 @@ export default function DashboardComponent() {
 			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
 				Hello {user.firstName}!
 			</h1>
-			<p className="font-light text-3xl mb-10 text-fuchsia-200">
+			<p className="font-light text-3xl mb-10 text-fuchsia-200 text-center">
 				Welcome to your dashboard.
 			</p>
-			<div className="flex flex-row justify-center button-container">
+			<div className="flex flex-row justify-center button-container md:flex-col md:items-center">
 				<Link to={community ? "/active-requests" : "/not-in-community"}>
 					<button>View active community requests</button>
 				</Link>
 				<Link to={community ? "/new-request" : "/not-in-community"}>
-					<button className="ml-4">Create a new request</button>
+					<button className="mdm:ml-4 md:mt-4">Create a new request</button>
 				</Link>
 			</div>
 		</motion.div>
