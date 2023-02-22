@@ -37,7 +37,7 @@ export default function LandingPageComponent() {
 					Quick Lend
 				</motion.h1>
 				<motion.p
-					className="font-light text-3xl mb-10 text-fuchsia-200 md:text-center"
+					className="font-light text-3xl mb-10 z-10 text-fuchsia-200 md:text-center"
 					variants={ListItemTransitionVariants}
 				>
 					Quickly borrow/lend general utilities within a localized community!

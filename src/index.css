@@ -89,5 +89,5 @@ form label {
 
 .landing-page-charger {
 	@apply absolute right-0 top-80;
-	@apply md:top-24 md:z-0;
+	@apply md:top-24 z-0;
 }
