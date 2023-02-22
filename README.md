@@ -17,8 +17,18 @@ Built using ReactJS, Framer Motion & TailwindCSS.
 - Run the container using `docker run -d -p <any_open_port>:3000 <image_name>`
 - Navigate to `http://localhost:<port_used_above>/`.
 
-![Screenshot from 2023-02-12 02-59-34](https://user-images.githubusercontent.com/78612244/218281966-5bf24c08-cf25-498a-8ad6-f3555950be1a.png)
-![Screenshot from 2023-02-12 02-59-44](https://user-images.githubusercontent.com/78612244/218281970-69c5eeac-5e6e-46b3-86bd-76d4e21c9bf2.png)
-![Screenshot from 2023-02-12 03-00-09](https://user-images.githubusercontent.com/78612244/218281977-42869954-46c5-4dbb-a9b4-071b6b8613bc.png)
-![Screenshot from 2023-02-12 03-00-20](https://user-images.githubusercontent.com/78612244/218281979-aab3c65d-1db1-453f-a28e-367fcdd258c3.png)
-![Screenshot from 2023-02-12 03-00-34](https://user-images.githubusercontent.com/78612244/218281981-3a6d4339-4909-4aa4-8f94-f2d1c192c137.png)
+![image](https://user-images.githubusercontent.com/78612244/220717400-6574ec85-f077-4de0-afaa-5a69f6d7d414.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717480-22c0327f-78f0-48d8-b9ed-5bec66822bf7.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717535-c39b06d7-06e8-4588-b773-450fb1763023.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717692-666bd8e8-ce51-4c90-b01b-a11255be9266.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717752-fa6b360c-64f7-4343-934f-2998784cff48.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717795-7a572d03-b2fd-48e4-9ffe-d9831c7fb7f3.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717867-98a49bec-0b98-43fb-a225-6786fea49540.png)
+
+![image](https://user-images.githubusercontent.com/78612244/220717940-e442c536-200c-45c4-963f-82100ac88d68.png)
