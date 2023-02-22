@@ -86,11 +86,11 @@ export default function ActiveRequests() {
 					animate="animate"
 					exit="exit"
 				>
-					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 						Active Requests
 					</h1>
 					<select
-						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white"
+						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white md:w-4/5"
 						onChange={(e) => {
 							if (e.target.value === "all") {
 								setRequestsToBeDisplayed(allActiveRequests);
@@ -106,7 +106,7 @@ export default function ActiveRequests() {
 						<option value="accepted">Requests I accepted</option>
 					</select>
 					{requestsToBeDisplayed.length > 0 && (
-						<div className="flex flex-col items-center w-1/2">
+						<div className="flex flex-col items-center w-full">
 							{requestsToBeDisplayed.map((request, ind) => {
 								return <RequestItem key={ind} request={request} />;
 							})}

@@ -97,11 +97,11 @@ export default function RequestHistory() {
 					animate="animate"
 					exit="exit"
 				>
-					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+					<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 text-center">
 						Request history
 					</h1>
 					<select
-						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white"
+						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white md:w-4/5"
 						onChange={(e) => {
 							if (e.target.value === "all") {
 								setRequestsToBeDisplayed(allInactiveRequestsPertainingToUser);

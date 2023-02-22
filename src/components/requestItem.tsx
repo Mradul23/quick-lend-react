@@ -11,28 +11,28 @@ export default function RequestItem({
 }) {
 	return (
 		<motion.div
-			className="outer-div"
+			className="outer-div w-4/5"
 			variants={ListItemTransitionVariants}
 			whileHover={{ scale: 1.05 }}
 			whileTap={{ scale: 0.95 }}
 		>
 			<Link to={`/request-details/${request._id}`} className="enclosing-link">
-				<div className="flex flex-row items-center w-full justify-between">
-					<h1 className="font-bold text-2xl text-white">
+				<div className="flex flex-row items-center w-full justify-between md:flex-col">
+					<h1 className="font-bold text-2xl text-white md:text-2xl">
 						{request.requestDescription}
 					</h1>
 					<h2 className="font-bold text-lg text-white">
 						{request.creatorUsername}
 					</h2>
 				</div>
-				<div className="flex flex-row items-center w-full justify-between">
-					<div className="request-location-text w-1/2">
+				<div className="flex flex-row items-center w-full justify-between md:hidden">
+					<div className="request-location-text w-2/5">
 						<h1 className="font-bold text-lg text-white overflow-hidden text-ellipsis whitespace-nowrap">
 							{request.location}
 						</h1>
 					</div>
-					<div>
-						<h2 className="font-bold text-lg text-white">
+					<div className="w-2/5">
+						<h2 className="font-bold text-lg text-white overflow-hidden text-ellipsis whitespace-nowrap">
 							(
 							{request.acceptorUsername
 								? `Accepted by ${request.acceptorUsername}`
