@@ -56,7 +56,7 @@ form label {
 
 .register-form label {
 	@apply ml-4;
-	@apply md:text-center ml-0;
+	@apply md:text-center md:ml-0;
 }
 
 .error-div {

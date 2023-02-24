@@ -43,7 +43,7 @@ export default function LandingPageComponent() {
 					Quickly borrow/lend general utilities within a localized community!
 				</motion.p>
 				<motion.div
-					className="flex flex-row justify-center items-center w-full"
+					className="flex flex-row md:justify-center items-center w-full"
 					variants={ListItemTransitionVariants}
 				>
 					<Link to="/login">
