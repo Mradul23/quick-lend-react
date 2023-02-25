@@ -68,7 +68,7 @@ form label {
 }
 
 .landing-page-football {
-	@apply absolute right-0 -bottom-24;
+	@apply absolute right-0 -bottom-24 z-0;
 	@apply md:bottom-36;
 	transform: scale(2.5);
 }

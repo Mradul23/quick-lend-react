@@ -16,7 +16,7 @@ export default function DashboardComponent() {
 			animate="animate"
 			exit="exit"
 		>
-			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600">
+			<h1 className="font-bold text-5xl mt-20 mb-6 text-fuchsia-600 md:text-center">
 				Hello {user.firstName}!
 			</h1>
 			<p className="font-light text-3xl mb-10 text-fuchsia-200 text-center">
