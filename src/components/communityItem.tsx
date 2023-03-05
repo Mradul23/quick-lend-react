@@ -3,6 +3,8 @@ import useJoinCommunity from "../customHooksAndServices/joinCommunityHook";
 import useAuth from "../customHooksAndServices/authContextHook";
 import "../componentSpecificStyles/communityItemStyles.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import ListItemTransitionVariants from "../framerMotionVariants/listItemTransitionVariants";
 
 export default function CommunityItem({
 	community,
@@ -29,7 +31,10 @@ export default function CommunityItem({
 	};
 	return (
 		<>
-			<div className="border-white border-2 w-full mt-4 p-4 flex flex-row justify-between md:flex-col">
+			<motion.div
+				variants={ListItemTransitionVariants}
+				className="border-white border-2 w-full mt-4 p-4 flex flex-row justify-between md:flex-col"
+			>
 				<div className="flex flex-col items-start h-full justify-between w-3/5 md:w-full">
 					<h1 className="font-bold text-3xl text-fuchsia-600">
 						{community.communityName}{" "}
@@ -58,7 +63,7 @@ export default function CommunityItem({
 						<button className="w-full">View on map</button>
 					</a>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 }

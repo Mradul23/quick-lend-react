@@ -11,6 +11,7 @@ import useAuth from "../customHooksAndServices/authContextHook";
 import PageTransitionVariants from "../framerMotionVariants/pageTransitionVariants";
 import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "framer-motion";
+import ListItemTransitionVariants from "../framerMotionVariants/listItemTransitionVariants";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -174,8 +175,14 @@ export default function RegisterComponent() {
 							onSubmit={handleRegister}
 						>
 							<div className="grid grid-cols-4 md:grid-cols-1">
-								<label htmlFor="register-email">Email</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="register-email"
+								>
+									Email
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="email"
 									name="email"
 									id="register-email"
@@ -184,8 +191,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterEmail(e.target.value)}
 									required
 								/>
-								<label htmlFor="username">Username</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="username"
+								>
+									Username
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="text"
 									name="username"
 									id="username"
@@ -194,8 +207,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterUsername(e.target.value)}
 									required
 								/>
-								<label htmlFor="register-password">Password</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="register-password"
+								>
+									Password
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="password"
 									name="password"
 									id="register-password"
@@ -204,10 +223,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterPassword(e.target.value)}
 									required
 								/>
-								<label htmlFor="register-confirmPassword">
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="register-confirmPassword"
+								>
 									Confirm Password
-								</label>
-								<input
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="password"
 									name="confirmPassword"
 									id="register-confirmPassword"
@@ -216,8 +239,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterConfirmPassword(e.target.value)}
 									required
 								/>
-								<label htmlFor="firstName">First Name</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="firstName"
+								>
+									First Name
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="text"
 									name="firstName"
 									id="firstName"
@@ -225,8 +254,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterFirstName(e.target.value)}
 									required
 								/>
-								<label htmlFor="lastName">Last Name</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="lastName"
+								>
+									Last Name
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="text"
 									name="lastName"
 									id="lastName"
@@ -234,8 +269,14 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterLastName(e.target.value)}
 									required
 								/>
-								<label htmlFor="phoneNumber">Phone Number</label>
-								<input
+								<motion.label
+									variants={ListItemTransitionVariants}
+									htmlFor="phoneNumber"
+								>
+									Phone Number
+								</motion.label>
+								<motion.input
+									variants={ListItemTransitionVariants}
 									type="tel"
 									name="phoneNumber"
 									id="phoneNumber"
@@ -243,9 +284,11 @@ export default function RegisterComponent() {
 									onChange={(e) => setRegisterPhoneNumber(e.target.value)}
 									required
 								/>
-								<br />
 							</div>
-							<div className="flex flex-col items-center">
+							<motion.div
+								variants={ListItemTransitionVariants}
+								className="flex flex-col items-center"
+							>
 								<button
 									type="submit"
 									className="register-button md:scale-125 md:mt-8 md:mb-8"
@@ -265,7 +308,7 @@ export default function RegisterComponent() {
 								>
 									Already have an account? Login
 								</Link>
-							</div>
+							</motion.div>
 						</form>
 						<RegisterErrorComponent registerErrors={errorState} />
 					</div>

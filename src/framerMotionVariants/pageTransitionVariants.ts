@@ -7,6 +7,8 @@ const PageTransitionVariants = {
 		opacity: 1,
 		x: 0,
 		transition: {
+			delayChildren: 0.3,
+			staggerChildren: 0.05,
 			type: "linear",
 			duration: 0.3,
 			ease: "easeOut",
