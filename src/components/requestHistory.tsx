@@ -117,7 +117,7 @@ export default function RequestHistory() {
 						<option value="accepted">Requests I accepted</option>
 					</select>
 					{requestsToBeDisplayed.length > 0 && (
-						<div className="flex flex-col items-center w-1/2 md:w-full">
+						<div className="flex flex-col items-center w-full md:w-full">
 							{requestsToBeDisplayed.map((request, ind) => {
 								return <RequestItem key={ind} request={request} />;
 							})}

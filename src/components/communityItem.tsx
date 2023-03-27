@@ -33,7 +33,7 @@ export default function CommunityItem({
 		<>
 			<motion.div
 				variants={ListItemTransitionVariants}
-				className="border-white border-2 w-full mt-4 p-4 flex flex-row justify-between md:flex-col"
+				className="border-white border-2 w-full mt-4 p-4 flex flex-row justify-between md:flex-col rounded-3xl"
 			>
 				<div className="flex flex-col items-start h-full justify-between w-3/5 md:w-full">
 					<h1 className="font-bold text-3xl text-fuchsia-600">

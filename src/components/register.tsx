@@ -153,7 +153,7 @@ export default function RegisterComponent() {
 		<>
 			<Link
 				to="/"
-				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4"
+				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4 rounded-3xl"
 			>
 				<FaArrowLeft className="mdm:hidden" />
 				<span className="md:hidden">Back to the Landing Page</span>
@@ -291,7 +291,7 @@ export default function RegisterComponent() {
 							>
 								<button
 									type="submit"
-									className="register-button md:scale-125 md:mt-8 md:mb-8"
+									className="register-button md:scale-125 md:mt-8 md:mb-8 rounded-3xl"
 									disabled={
 										requestInProgress ||
 										errorState.passwordMatch ||

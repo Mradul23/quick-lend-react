@@ -55,7 +55,7 @@ export default function LoginComponent() {
 		<>
 			<Link
 				to="/"
-				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4"
+				className="text-fuchsia-200 back-to-landing-page-button absolute ml-4 mt-4 rounded-3xl"
 			>
 				<FaArrowLeft className="mdm:hidden" />
 				<span className="md:hidden">Back to the Landing Page</span>
@@ -96,7 +96,7 @@ export default function LoginComponent() {
 							/>
 							<button
 								type="submit"
-								className="login-button md:scale-125 md:mt-8 md:mb-8"
+								className="login-button md:scale-125 md:mt-8 md:mb-8 rounded-3xl"
 								disabled={requestInProgress}
 							>
 								Login

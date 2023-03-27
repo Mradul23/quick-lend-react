@@ -20,8 +20,8 @@ form input {
 }
 
 .form-container button {
-	@apply hover:bg-white hover:text-fuchsia-700 text-white font-bold p-1 transition-colors h-10 mt-8;
-	border: 1px solid white;
+	@apply hover:bg-white hover:text-fuchsia-700 text-white font-bold p-2 transition-all mt-8 rounded-3xl hover:-translate-x-1 hover:-translate-y-1;
+	border: 2px solid white;
 }
 
 .form-container button[disabled] {

@@ -20,7 +20,7 @@ form input {
 }
 
 .form-wrapper button {
-	@apply hover:bg-white hover:text-fuchsia-700 text-white font-bold p-1 transition-colors h-10 mt-8;
+	@apply hover:bg-white hover:text-fuchsia-700 text-white font-bold p-2 transition-colors mt-8 rounded-3xl;
 	border: 1px solid white;
 }
 

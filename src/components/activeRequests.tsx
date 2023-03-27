@@ -90,7 +90,7 @@ export default function ActiveRequests() {
 						Active Requests
 					</h1>
 					<select
-						className="w-1/2 mb-6 bg-transparent p-4 text-2xl text-white md:w-4/5"
+						className="w-1/2 mb-6 bg-transparent p-3 text-2xl text-white md:w-4/5 rounded-3xl"
 						onChange={(e) => {
 							if (e.target.value === "all") {
 								setRequestsToBeDisplayed(allActiveRequests);

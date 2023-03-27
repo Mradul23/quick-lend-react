@@ -13,7 +13,7 @@ export default function RequestItem({
 		<motion.div
 			className="outer-div w-4/5"
 			variants={ListItemTransitionVariants}
-			whileHover={{ scale: 1.05 }}
+			whileHover={{ scale: 1.05, borderRadius: "30px" }}
 			whileTap={{ scale: 0.95 }}
 		>
 			<Link to={`/request-details/${request._id}`} className="enclosing-link">

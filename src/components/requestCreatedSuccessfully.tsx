@@ -19,7 +19,7 @@ export default function RequestCreatedSuccessfully() {
 				required filters.
 			</p>
 			<Link to="/dashboard">
-				<button className="hover:bg-white hover:text-fuchsia-700 text-white font-bold p-4 transition-colors mt-8 border-2">
+				<button className="hover:bg-white hover:text-fuchsia-700 text-white font-bold p-4 transition-all mt-8 border-2 rounded-3xl hover:-translate-x-1 hover:-translate-y-1">
 					Back to dashboard
 				</button>
 			</Link>

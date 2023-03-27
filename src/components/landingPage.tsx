@@ -47,12 +47,12 @@ export default function LandingPageComponent() {
 					variants={ListItemTransitionVariants}
 				>
 					<Link to="/login" className=" z-10">
-						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 mr-4 login-button z-10">
+						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 mr-4 login-button z-10 rounded-3xl">
 							Login
 						</button>
 					</Link>
 					<Link to="/register" className=" z-10">
-						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 register-button">
+						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 register-button rounded-3xl">
 							Register
 						</button>
 					</Link>
