@@ -46,8 +46,8 @@ export default function LandingPageComponent() {
 					className="flex flex-row md:justify-center items-center w-full"
 					variants={ListItemTransitionVariants}
 				>
-					<Link to="/login" className=" z-10">
-						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 mr-4 login-button z-10 rounded-3xl">
+					<Link to="/login" className="mr-4 z-10">
+						<button className="text-fuchsia-200 font-bold text-2xl px-8 py-2 login-button z-10 rounded-3xl">
 							Login
 						</button>
 					</Link>
