@@ -43,7 +43,7 @@ export default function SideMenuWrapper() {
 	return (
 		<>
 			<div
-				className="h-screen w-screen fixed"
+				className="h-screen w-screen fixed overflow-scroll"
 				onTouchStart={handleTouchStart}
 				onTouchMove={handleTouchMove}
 				onTouchEnd={handleTouchEnd}
