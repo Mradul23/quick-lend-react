@@ -17,6 +17,8 @@ Built using ReactJS, Framer Motion & TailwindCSS.
 - Run the container using `docker run -d -p <any_open_port>:3000 <image_name>`
 - Navigate to `http://localhost:<port_used_above>/`.
 
+## Images are outdated, layout (kinda) remains the same though
+
 ![image](https://user-images.githubusercontent.com/78612244/220717400-6574ec85-f077-4de0-afaa-5a69f6d7d414.png)
 
 ![image](https://user-images.githubusercontent.com/78612244/220717480-22c0327f-78f0-48d8-b9ed-5bec66822bf7.png)
